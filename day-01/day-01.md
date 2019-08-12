@@ -139,19 +139,19 @@ Windows users: for running commands in the CLI you can use [cygwin](https://www.
 
 ## Code-along
 
-list files and folders in the current directory:
+### list files and folders in the current directory:
 
 `ls`
 
-you can also pass flags to display addition info such as permissions:
+### you can also pass flags to display addition info such as permissions:
 
 `ls -l`
 
-list all including hidden files:
+### list all including hidden files:
 
 `ls -la`
 
-go back to your home (`~`) directory:
+### go back to your home (`~`) directory:
 
 `cd`
 
@@ -159,91 +159,91 @@ go back to your home (`~`) directory:
 
 `cd $HOME`
 
-go anywhere:
+### go anywhere:
 
 `cd ~/workstation`
 
-go to the root:
+### go to the root:
 
 `cd /`
 
-we use echo to display text:
+### we use echo to display text:
 
 `echo Hello, World!`
 
-and printf is a little bit more sophisticated:
+### and printf is a little bit more sophisticated:
 
 `printf 'Hello, World!\nHola Mundo!'`
 
-to add text to a text file we use redirection operators:
+### to add text to a text file we use redirection operators:
 
 `echo john > names.txt`
 
 `cat names.txt`
 
-to append text to a text file we use the double arrow heads:
+### to append text to a text file we use the double arrow heads:
 
 `echo james >> names.txt` 
 `echo mary >> names.txt` 
 
 `cat names.txt`
 
-use `tail` or `less` to watch for content changes: 
+### use `tail` or `less` to watch for content changes: 
 
 `tail -f names.txt`
 `less +F names.txt`
 
-which names start with the letter `j`:
+### which names start with the letter `j`?
 
 `cat names.txt | grep ^j`
 
-you can also count the number of entries:
+### you can also count the number of entries:
 
 `cat names.txt | wc -l`
 
-quizz: sort the names in the file using `sort` and place the result another file in just one line.
+### quizz: sort the names in the file using `sort` and place the result another file in just one line.
 
 tip: `man sort` will show you how to use the program `sort`
 
 solution: `cat names.txt | sort > sorted.txt`
 
-to move a file we use the mv command:
+### to move a file we use the mv command:
 
 `mv names.txt students.txt`
 
-we can also make a copy:
+### we can also make a copy:
+    
+### `cp students.txt students.txt.bck`
 
-`cp students.txt students.txt.bck`
-
-we can delete a file:
+### we can delete a file:
 
 `rm students.txt.bck`
 
-quizz: create a folder and add some files to it. How can you remove the folder with everything from it?
+### quizz: create a folder and add some files to it. How can you remove the folder with everything from it?
 
-pbcopy and pbpaste let you interact with the clipboard:
-
+### pbcopy and pbpaste let you interact with the clipboard:
+ 
 `pbcopy < students.txt`
 
 `pbpaste`
 
-top	displays active processes:
+### top	displays active processes:
 
 `top`
 
-execute the last command typed:
+### execute the last command typed:
 
 `!!`
 
-see the history of commands executed:
+### see the history of commands executed:
 
 `history`
 
-open a program
+### open a program
 
 `open -a "Visual Studio Code"`
 
-create an alias
+### create an alias
 
 `alias code='open -a "Visual Studio Code"'`
 
