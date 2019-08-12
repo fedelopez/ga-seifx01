@@ -15,7 +15,7 @@ What we covered today:
 - Yianni Moustakas - Instructional Associate / Teaching Assistant - yianni.moustakas@ga.co​ **5mins**
 - Students - introduce yourselves **20mins** eg. who they are, what they do, guilty pleasure              
 
-The GA campus is typically open from 8.45am to 9:30pm on weekdays and from 9am to 4pm on Saturdays. 
+The GA campus is typically open from 8.45am to 9:30pm on weekdays and from 9am to 6:30pm on Saturdays. 
 The campus is closed on Sundays and public holidays.
 
 ## Classroom Values 5-10mins
@@ -47,17 +47,6 @@ Share things with the class!
 - [​The Jargon File​](http://www.catb.org/jargon/html/index.html)
 - [​The Tao of Programming​](http://canonical.org/~kragen/tao-of-programming.html)
 - [The Codeless Code](http://thecodelesscode.com/contents)
-
-### Online coding links 10mins
-
-- [​Gist](http://gist.github.com): sharing code, notes and guides
-- Paste Bins: sharing code, debugging code, testing code (esp JS, HTML, CSS):
-    - [​CodePen​](http://codepen.io)
-    - ​[PasteBin​](http://pastebin.com)
-    - [​JS Bin](http://jsbin.com)​
-- REPLs: 'Read, Evaluate, Print, Loop' - interactive environments for evaluating code:
-    - ​[REPL.it​](https://repl.it)
-    - [Babel​](https://babeljs.io/repl)
     
 Example app: https://jsbin.com/xequpubenu/edit?html,js,output
     
@@ -71,13 +60,26 @@ Example app: https://jsbin.com/xequpubenu/edit?html,js,output
 
 ### Meetups 5mins
 
-One of the amazing things about the development community is that it is very active, inclusive, social and 
-supportive - people actually take time out of their lives to help other developers and attend meetups to: (1) learn 
-more about web development, and (2) socialize with others in the community. There are a ton of meetups in Sydney 
-(most of which can be found on meetups.com.au), but the two most relevant to this course are:
+One of the amazing things about the development community is that it is very active, inclusive, social and supportive - people actually take time out of their lives to help other developers and attend meetups to: 
+
+- learn more about development, and 
+- socialize with others in the community
+
+There are a ton of meetups in Sydney (most of which can be found on meetups.com.au), but the two most relevant to this course are:
 ​
 - [RORO​](https://www.meetup.com/en-AU/Ruby-On-Rails-Oceania-Sydney)
-- [​SydJS​](http://www.sydjs.com) 
+- [​SydJS​](http://www.sydjs.com)
+
+### Online coding links 10mins
+
+- [​Gist](http://gist.github.com): sharing code, notes and guides
+- Paste Bins: sharing code, debugging code, testing code (esp JS, HTML, CSS):
+    - [​CodePen​](http://codepen.io)
+    - ​[PasteBin​](http://pastebin.com)
+    - [​JS Bin](http://jsbin.com)​
+- REPLs: 'Read, Evaluate, Print, Loop' - interactive environments for evaluating code:
+    - ​[REPL.it​](https://repl.it)
+    - [Babel​](https://babeljs.io/repl)
 
 ## Structure of the Course (ask Yianni to elaborate on project milestones) 5-10mins
 
@@ -96,7 +98,7 @@ more about web development, and (2) socialize with others in the community. Ther
 ### Your first week will look like this 5mins
 
 - Command line
-- Intro to Javascript
+- Intro to programming in Javascript
 - Source code version control with Git
 
 ## A typical day here at GA 10mins
@@ -116,29 +118,24 @@ This is a typical day, but we have a Slack channel too! reach out and help out e
 ## GitBook, Homework Repository, Code-Along Repository (Yianni to run it) 5mins
 
 - GitBook: You're reading it right now. At the end of each day, Yianni will update this GitBook to include notes for the day's lessons.
-- [​​Homework Repo](https://github.com/Yiannimoustakas/sei31-homework): Before class every morning, you should submit your homework for the last day using Github. The repository ("repo") has instructions for submitting your homework.
-- ​[Classwork Repo](https://github.com/wofockham/sei-31): Missed something during a code-along? You can check this repository for the 'official' code.
+- [​​Homework Repo](https://github.com/Yiannimoustakas/seifx01-homework): Before class every morning, you should submit your homework for the last day using Github. The repository ("repo") has instructions for submitting your homework.
+- ​[Classwork Repo](https://github.com/fedelopez/ga-seifx01): Missed something during a code-along? You can check this repository for the 'official' code.
 
 ### The Command Line
 
-The command-line interface - aka "the CLI" or the shell - is a tool that performs specific tasks in response to 
-user-typed commands. It has the potential to save you lots-and-lots of time because it can automate things, 
-loop through items etc.
+The command-line interface - aka "the CLI" or the shell - is a tool that performs specific tasks in response to user-typed commands. It has the potential to save you lots-and-lots of time because it can automate things, loop through items etc.
 
-Software engineers live on the command line. It gives us fast, reliable, and automatable control over computers. 
-Web servers usually don't have graphical interfaces, so we need to interact with them through command line and 
-programmatic interfaces. 
+Software engineers live on the command line. It gives us fast, reliable, and automatable control over computers. Web servers usually don't have graphical interfaces, so we need to interact with them through command line and programmatic interfaces. 
 
-Once you become comfortable using the command line, staying on the keyboard will also help you keep an uninterrupted 
-flow of work going without the disruption of shifting to the mouse.
+Once you become comfortable using the command line, staying on the keyboard will also help you keep an uninterrupted flow of work going without the disruption of shifting to the mouse.
 
 macOs users: for running commands in the CLI you can use [iTerm2](https://www.iterm2.com)
 
-``brew cask install iterm2``
+`brew cask install iterm2`
 
 Windows users: for running commands in the CLI you can use [cygwin](https://www.cygwin.com)
 
-``choco install cygwin``
+`choco install cygwin`
 
 ## Code-along
 
@@ -146,7 +143,7 @@ list files and folders in the current directory:
 
 `ls`
 
-you can also pass flags:
+you can also pass flags to display addition info such as permissions:
 
 `ls -l`
 
@@ -154,7 +151,7 @@ list all including hidden files:
 
 `ls -la`
 
-go back to your home directory:
+go back to your home (`~`) directory:
 
 `cd`
 
@@ -190,6 +187,11 @@ to append text to a text file we use the double arrow heads:
 `echo mary >> names.txt` 
 
 `cat names.txt`
+
+use `tail` or `less` to watch for content changes: 
+
+`tail -f names.txt`
+`less +F names.txt`
 
 which names start with the letter `j`:
 
@@ -233,6 +235,10 @@ top	displays active processes:
 execute the last command typed:
 
 `!!`
+
+see the history of commands executed:
+
+`history`
 
 open a program
 
