@@ -98,7 +98,7 @@ There are a ton of meetups in Sydney (most of which can be found on meetups.com.
 ### Your first week will look like this 5mins
 
 - Command line
-- Intro to programming in Javascript
+- Intro to programming in JavaScript
 - Source code version control with Git
 
 ## A typical day here at GA 10mins
@@ -113,7 +113,7 @@ There are a ton of meetups in Sydney (most of which can be found on meetups.com.
 - Breaks (decide with students)
 - Every 2nd Wednesday outcome session from 5pm to 6pm
 
-This is a typical day, but we have a Slack channel too! reach out and help out each other in #class channel not direct
+This is a typical day, but we have a Slack channel too! reach out and help out each other in class channel (not direct)
 
 ## GitBook, Homework Repository, Code-Along Repository (Yianni to run it) 5mins
 
@@ -125,11 +125,11 @@ This is a typical day, but we have a Slack channel too! reach out and help out e
 
 The command-line interface - aka "the CLI" or the shell - is a tool that performs specific tasks in response to user-typed commands. It has the potential to save you lots-and-lots of time because it can automate things, loop through items etc.
 
-Software engineers live on the command line. It gives us fast, reliable, and automatable control over computers. Web servers usually don't have graphical interfaces, so we need to interact with them through command line and programmatic interfaces. 
+Software engineers live on the command line. It gives us fast, reliable, and automatable control over computers. Web servers usually don't have graphical interfaces,n so we need to interact with them through command line and programmatic interfaces. 
 
 Once you become comfortable using the command line, staying on the keyboard will also help you keep an uninterrupted flow of work going without the disruption of shifting to the mouse.
 
-macOs users: for running commands in the CLI you can use [iTerm2](https://www.iterm2.com)
+macOS users: for running commands in the CLI you can use [iTerm2](https://www.iterm2.com)
 
 `brew cask install iterm2`
 
@@ -201,8 +201,7 @@ you can also count the number of entries:
 
 `cat names.txt | wc -l`
 
-quizz: sort the names in the file using `sort` and place the result another file in just
-one line.
+quizz: sort the names in the file using `sort` and place the result another file in just one line.
 
 tip: `man sort` will show you how to use the program `sort`
 
@@ -256,7 +255,7 @@ but this only lasts for the current session, what if we want to keep this alias 
 
 ```bash
 echo "Welcome to the terminal"
-alias code='open -a "Visual Studio Code"'
+alias vs='open -a "Visual Studio Code"'
 PS1="\W $ "
 ```
 
@@ -266,15 +265,15 @@ and we make the changes happen by sourcing the file
 
 now we can open VS Code very easily:
 
-`code`
+`vs`
 
 ## IMDb top 250 CLI challenge
 
-go to https://raw.githubusercontent.com/jberkel/imdb-movie-links/master/top250.txt
-
-- copy the contents in the clipboard
+- open https://raw.githubusercontent.com/jberkel/imdb-movie-links/master/top250.txt
+- copy the page contents in the clipboard
 - go to the command line and just by using the CLI:
-    - find how many movies are in the top 250 from the year 2007
+
+How many movies released in 2007 made it to the top 250?
 
 ## Command-line Murder Mystery
 
