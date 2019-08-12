@@ -212,8 +212,8 @@ solution: `cat names.txt | sort > sorted.txt`
 `mv names.txt students.txt`
 
 ### we can also make a copy:
-    
-### `cp students.txt students.txt.bck`
+
+`cp students.txt students.txt.bck`
 
 ### we can delete a file:
 
