@@ -1,0 +1,4 @@
+
+choco install vscode
+
+pause
