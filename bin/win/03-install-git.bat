@@ -1,0 +1,4 @@
+
+choco install git
+
+pause
