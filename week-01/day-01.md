@@ -22,11 +22,13 @@ The campus is closed on Sundays and public holidays.
 
 You guys came up with these rules for the next 6 months:
 
-- 
-- 
-- 
-- 
-- 
+- Always be kind
+- Have fun
+- Share knowledge
+- Ask questions
+- Make mistakes
+- Respect all
+- Be patient
 
 ## Hacker Culture 5mins
                 
