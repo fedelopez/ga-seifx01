@@ -7,6 +7,7 @@ What we covered today:
 - Declaring Variables
 - Data Types
 - Functions
+- Coding Conventions
 - Recommended JavaScript Readings
 
 ## Recap from previous lesson
@@ -188,13 +189,6 @@ Ever wonder how much a "lifetime supply" of your favorite snack is? Wonder no mo
 - Store an estimated amount per day (as a number).
 - Calculate how many you would eat total for the rest of your life.
 - Output the result to the screen like so: "You will need NN to last you until the ripe old age of X".
-
-Javascript is a Loosely Typed language.
-What this means is that we do not explicitly state what type of value will be stored by a variable - Javascript will figure out the type of value to be stored by looking at the type of the result of the expression. If that sounds confusing, remember:
-5 is an expression that evaluates to the number 5;
-"5" is an expression that evaluates to the string "5";
-5 + 5 is an expression that evaluates to the number 10;
-5 + "55" is an expression that evaluates to the string "555"
 
 ### JavaScript is a Loosely Typed language
 
@@ -416,6 +410,36 @@ Create a function called fahrenheitToCelsius:
 Now store a fahrenheit temperature into a variable.
 
 Convert it to celsius and output "NN°F is NN°C."
+
+## Coding Conventions
+
+JavaScript is pretty flexible. We can use whatever terrible formatting we like and a computer will (generally) be able to understand it. But for maximum readability, it's important to follow conventions. There a whole bunch of these, and there are disagreements about some, but some generally accepted conventions are:
+
+- Use newlines between statements;
+- Use indentation to show blocks;
+- Use camelCase for variable names (as discussed above).
+
+```
+// BAD
+function addNumbers(num1,num2) {return num1 + num2;}​
+​
+function addNumbers(num1, num2) {
+return num1 + num2;
+}​
+​
+// GOOD
+const addNumbers = function(num1, num2) {  
+  return num1 + num2;
+}
+```
+
+### Javascript Coding Conventions - Recommended Readings
+
+For information relating to javascript style, see:
+
+- ​[Idiomatic JS](https://github.com/rwaldron/idiomatic.js)
+​- [Javascript Style Guides and Beautifiers​](http://addyosmani.com/blog/javascript-style-guides-and-beautifiers)
+​- [AirBnB Style Guide](https://github.com/airbnb/javascript?utm_source=javascriptweekly&utm_medium=email)
 
 ## Recommended JavaScript Readings
 
