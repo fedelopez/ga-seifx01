@@ -317,7 +317,7 @@ Calculate properties of a circle, using [the definitions here](http://math2.org/
 
 Create 2 functions that calculate properties of a circle.
 
-Create a function called `calculateCircumfrence`:
+Create a function called `calculateCircumference`:
 
 - Pass the `radius` to the function as argument.
 - Calculate the circumference based on the radius, and output "The circumference is NN".
