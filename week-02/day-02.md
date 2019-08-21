@@ -2,25 +2,29 @@
 
 ## Agenda
 
-- Warmup and solution [Serge Says](https://github.com/textchimp/sei32-homework/tree/master/warmups/week01/day04_sergeSays)
+- Warmup and solution: Serge Says
 - Code along: make it work, then make it right mantra on `sumArray` and `multiplyArray`
-- Code along [Shakespearean insult generator](https://github.com/textchimp/sei32/tree/master/week1/shakespearean-insult-generator)
+- Code along: Shakespearean insult generator
 - JavaScript Objects
 
 ## Warmup - Serge Says
 
 Create a function that takes an input and returns Serge's response.
 
-## Code along: make it work, then make it right 
-
-Let's apply this mantra on `sumArray` and `multiplyArray`
-
-### Examples
+Examples
 
 - Serge answers 'Sure.' if you ask him a question.
 - Serge answers 'Woah, chill out!' if you yell at him (ALL CAPS).
 - Serge says 'Fine. Be that way!' if you address him without actually saying anything.
 - Serge answers 'Whatever.' to anything else.
+
+## Code along: make it work, then make it right
+
+The mantra of agile software is actually _Make it work, make it right, make it fast._
+
+It was coined by Kent Beck, one of the most influential developers and original authors of the agile manifesto. 
+
+Let's apply the 'make it right' part of this mantra on `sumArray` and `multiplyArray`.
 
 ## Code along: Shakespearean insult generator
 
@@ -248,5 +252,6 @@ Create a function to print out the movie information like so:
 
 ## Solutions to class exercises
 
-- [Exercises](https://gist.github.com/wofockham/3ed2b7662e0e067d4e2a)
-- [Solutions](https://github.com/textchimp/sei32/tree/master/week1/objects-exercises)
+- [Serge Says](https://github.com/textchimp/sei32-homework/tree/master/warmups/week01/day04_sergeSays)
+- [Shakespearean insult generator](https://github.com/textchimp/sei32/tree/master/week1/shakespearean-insult-generator)
+- [Exercises](https://gist.github.com/wofockham/3ed2b7662e0e067d4e2a) and [Solutions](https://github.com/textchimp/sei32/tree/master/week1/objects-exercises)
