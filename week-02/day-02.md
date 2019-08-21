@@ -11,7 +11,11 @@
 
 Create a function that takes an input and returns Serge's response.
 
-## Examples
+## Code along: make it work, then make it right 
+
+Let's apply this mantra on `sumArray` and `multiplyArray`
+
+### Examples
 
 - Serge answers 'Sure.' if you ask him a question.
 - Serge answers 'Woah, chill out!' if you yell at him (ALL CAPS).
