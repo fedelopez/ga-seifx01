@@ -236,7 +236,7 @@ Create a function to print out the movie information like so:
 
 ## Homework
 
-​​- [Javascript Bank​​](https://gist.github.com/wofockham/dacf2da17c743afb2b17)
+- [Javascript Bank​​](https://gist.github.com/wofockham/dacf2da17c743afb2b17)
 - Bonus - read:
 ​   - [MDN - Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) - MDN is an amazing resource for JavaScript, HTML and CSS.
 ​   - [JavaScript Tutorials - Arrays​](http://javascript.info/array)
