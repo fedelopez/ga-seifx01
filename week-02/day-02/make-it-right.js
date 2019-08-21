@@ -13,6 +13,7 @@ function reduce(initialValue, array, func) {
     }
     return accumulator;
 }
+
 let actual, expected;
 
 actual = sum([1,2,3,4]);

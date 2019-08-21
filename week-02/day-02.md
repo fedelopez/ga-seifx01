@@ -2,29 +2,29 @@
 
 ## Agenda
 
-- Warmup and solution: Serge Says
+- Warm up: Serge Says
 - Code along: make it work, then make it right mantra on `sumArray` and `multiplyArray`
 - Code along: Shakespearean insult generator
 - JavaScript Objects
 
-## Warmup - Serge Says
+## Warm up: Serge Says
 
 Create a function that takes an input and returns Serge's response.
 
 Examples
 
-- Serge answers 'Sure.' if you ask him a question.
-- Serge answers 'Woah, chill out!' if you yell at him (ALL CAPS).
-- Serge says 'Fine. Be that way!' if you address him without actually saying anything.
-- Serge answers 'Whatever.' to anything else.
+- Serge answers `Sure.` if you ask him a question.
+- Serge answers `Woah, chill out!` if you yell at him (ALL CAPS).
+- Serge says `Fine. Be that way!` if you address him without actually saying anything.
+- Serge answers `Whatever.` to anything else.
 
 ## Code along: make it work, then make it right
 
 The mantra of agile software is actually _Make it work, make it right, make it fast._
 
-It was coined by Kent Beck, one of the most influential developers and original authors of the agile manifesto. 
+It was coined by Kent Beck, one of the most influential developers and original author of the agile manifesto. 
 
-Let's apply the 'make it right' part of this mantra on `sumArray` and `multiplyArray`.
+Let's apply the 'make it right' part of this mantra on `sumArray` and `multiplyArray` exercise.
 
 ## Code along: Shakespearean insult generator
 
@@ -40,11 +40,12 @@ Pick one random element from the first second and third array (firstAdjective, s
 
 ## JavaScript Objects
 
-In JavaScript, an object is a standalone entity - filled with properties and types (or keys and values). 
-It is very similar in structure to a dictionary.
-So, most javascript objects will have keys and values attached to them - this could be considered as a variable 
-that is attached to the object (also allows us to iterate through them).
+In JavaScript, an object is a standalone entity - filled with properties and types (or keys and values). It is very similar in structure to a dictionary.
+
+So, most javascript objects will have keys and values attached to them - this could be considered as a variable  that is attached to the object (also allows us to iterate through them).
+
 They are sometimes called "associative arrays". 
+
 Remember that they are not stored in any particular order (they can change order whenever).
 
 ### How to create an object
@@ -99,30 +100,36 @@ Remember: like all JS variables - both the object name and property names are ca
 ### Let's build a car together
 
 ```javascript
-const favouriteCar = {  
-  manufacturer: "Jaguar",  
-  year: 1963,  
-  model: "E-Type"
+const car = {  
+  manufacturer: "Tesla",  
+  model: "Model S",
+  accelerate: function() {
+    console.log('Accelerating')
+  },
+  stop: function() {
+    console.log('Stopping')
+  }
 };​
 // Dot notation access to object properties
-console.log(favouriteCar.year);
+console.log(car.manufacturer);
 
 // Square bracket notation access to object properties
-favouriteCar['year'];
+console.log(car['manufacturer']);
 
 //however, if we create a new variable 
-const key = "year";
+const key = "c";
 console.log(key); 
 //=> "year"
 //if we run the code via dot notation
-console.log(favouriteCar.key);
+console.log(car.key);
 //=> undefined
 
 // via bracket (array-style) notation
-console.log(favouriteCar[key]);
-//=> 1963
+console.log(car[key]);
+//=> Model S
 ​
-//the things inside [] get evaluated
+car.accelerate();
+//=> Accelerating
 ```
 
 ### Exercise time: The Recipe Card
@@ -146,8 +153,8 @@ cocoa
 ### How to iterate through an object
 
 ```javascript
-Object.keys(favouriteCar); // Returns an array of all the keys in the specified object.
-Object.getOwnPropertyNames(favouriteCar); // So does this
+Object.keys(car); // Returns an array of all the keys in the specified object.
+Object.getOwnPropertyNames(car); // So does this
 ​
 ​const obj = {  
   a: 1,  
@@ -157,7 +164,7 @@ Object.getOwnPropertyNames(favouriteCar); // So does this
 ​
 //we use bracket notation to get value
 for (const key in obj) {  
-  console.log( `key: ${key}, value: ${obj[key]}`);
+  console.log(`key: ${key}, value: ${obj[key]}`);
 }
 // key: a, value: 1
 // key: b, value: 2
@@ -191,9 +198,16 @@ console.log(favouriteCar);
 
 Keep track of which books you read and which books you want to read!
 
-Create an array of objects, where each object describes a book and has properties for the title (a string), author (a string), and alreadyRead (a boolean indicating if you read it yet).
+Create an array of objects, where each object describes a book and has properties for:
+- the title (a string),
+- author (a string), and 
+- alreadyRead (a boolean indicating if you read it yet).
+
 Iterate through the array of books. For each book, log the book title and book author like so: "The Hobbit by J.R.R. Tolkien".
-Now use an if/else statement to change the output depending on whether you read it yet or not. If you read it, log a string like 'You already read "The Hobbit" by J.R.R. Tolkien', and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
+
+Now use an `if`/`else` statement to change the output depending on whether you read it yet or not. If you read it, 
+log a string like 'You already read "The Hobbit" by J.R.R. Tolkien', and if not, log a string like 'You still need to 
+read "The Lord of the Rings" by J.R.R. Tolkien.'
 
 ### Comparing objects
 
