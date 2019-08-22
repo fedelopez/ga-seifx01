@@ -7,7 +7,7 @@
 - Code along: Shakespearean insult generator
 - JavaScript Objects
 
-## Warm up: Serge Says
+## Warm up: Serge Say
 
 Create a function that takes an input and returns Serge's response.
 
@@ -40,7 +40,7 @@ Pick one random element from the first second and third array (firstAdjective, s
 
 ## JavaScript Objects
 
-In JavaScript, an object is a standalone entity - filled with properties and types (or keys and values). It is very similar in structure to a dictionary.
+In JavaScript, an object is a standalone entity - filled with keys and values. It is very similar in structure to a dictionary.
 
 So, most javascript objects will have keys and values attached to them - this could be considered as a variable  that is attached to the object (also allows us to iterate through them).
 
@@ -68,14 +68,10 @@ const newObject = new Object();
 // Remember to separate keys by commas!
 const newObject = {  
   objectKey: 'Object Value',  
-  anotherObjectKey: 'Another Object Value',  
-  objectFunction: function () {​ 
-    console.log('Hello, from object function');   
-  }
+  anotherObjectKey: 'Another Object Value'
 };​
 const anotherObject = {};
 anotherObject.objectKey = "Object Value";
-anotherObject.objectFunction = function() { console.log('Hello, from object function'); };
 anotherObject['anotherObjectKey'] = 'Another Object Value';
 ```
 
@@ -83,13 +79,13 @@ anotherObject['anotherObjectKey'] = 'Another Object Value';
 
 There are two ways to access the properties of an object:
 
-### Dot notation
+#### Dot notation
 
 ```javascript
 console.log("HELLO".length);
 ```
 
-### Square bracket notation
+#### Square bracket notation
 
 ```javascript
 console.log("HELLO"['length']);
@@ -103,12 +99,7 @@ Remember: like all JS variables - both the object name and property names are ca
 const car = {  
   manufacturer: "Tesla",  
   model: "Model S",
-  accelerate: function() {
-    console.log('Accelerating')
-  },
-  stop: function() {
-    console.log('Stopping')
-  }
+  year: 2017
 };​
 // Dot notation access to object properties
 console.log(car.manufacturer);
@@ -127,9 +118,6 @@ console.log(car.key);
 // via bracket (array-style) notation
 console.log(car[key]);
 //=> Model S
-​
-car.accelerate();
-//=> Accelerating
 ```
 
 ### Exercise time: The Recipe Card
@@ -180,6 +168,8 @@ for (const key in obj) {
 ​
 //if using dot notation, it will literally looking for the key called "key".
 ```
+
+#### Watch out: what happens when we use `for (const key in array) { ... }` passing an array?
 
 ### Deleting properties of an object
 

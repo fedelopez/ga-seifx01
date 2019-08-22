@@ -16,11 +16,12 @@ function reduce(initialValue, array, func) {
 
 let actual, expected;
 
-actual = sum([1,2,3,4]);
-expected = 10;
+actual = sum([2, 3]);
+expected = 5;
 console.log(`Result: ${actual}`);
 console.assert(actual === expected, `Expected '${expected}', Got: '${actual}'`);
 
+console.log('Now the multiplication.')
 actual = multiply([1,2,3,4]);
 expected = 24;
 console.log(`Result: ${actual}`);
