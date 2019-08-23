@@ -50,6 +50,8 @@ Install the following VS Code extensions:
 
 ## More on JavaScript objects
 
+- [Slides](https://github.com/textchimp/sei32/blob/master/week1/this-factories-and-constructors.pdf)
+
 ### Comparing objects
 
 In JavaScript objects are a reference type. Two distinct objects are never equal, even if they have the same properties. 
