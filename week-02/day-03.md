@@ -4,8 +4,7 @@
 
 - Remind to book 1:1 with Lucy Barnes for next week at https://calendly.com/lucy-barnes
 - Setup Node and VS Code
-- More JS objects
-- Advanced JS objects
+- Advanced concepts using JavaScript objects
 
 ## Setup VS Code
 
@@ -150,7 +149,7 @@ Both constructors and factories are "blue prints". They bootstrap development.
 
 We can use 'factory' functions to create objects.
 
-Let's create a cat with the properties age, breed, favourite food and the methods `meow` and `eats`.
+Let's create a cat with the properties age, breed, favourite food and the methods `meow` and `eats(food)`.
 
 ```javascript
 const createCat = function(name, age, breed, favouriteFood) {
@@ -210,6 +209,7 @@ const Person = function (name, surname) {
 
 Create a cat with the properties:
 
+- name
 - age
 - breed
 - favourite food and the methods 
@@ -257,6 +257,28 @@ A palindrome is a word, number, phrase, or other sequence of characters which re
 such as `madam` or `racecar`.
 
 Write a prototype function in the `String` class that returns `true` if the string is palindrome, false otherwise.
+
+## Pairing Lab time: The Cash Register
+
+Write a function called `cashRegister` that takes a shopping cart object. The object contains item names and prices (`itemName: itemPrice`). The function should return the total price of the shopping cart.
+
+```javascript
+// Input
+const cartForParty = {  
+  banana: "1.25",
+  handkerchief: ".99",
+  Tshirt: "25.01",
+  apple: "0.60",
+  nalgene: "10.34",
+  proteinShake: "22.36"
+};
+// Output
+cashRegister(cartForParty)); // 60.55
+```
+
+## Pairing Lab time: Credit Card Validation
+
+- See instructions [here](https://gist.github.com/wofockham/dacf2da17c743afb2b17#the-cash-register)
 
 ## Advanced Functions
 
