@@ -256,6 +256,9 @@ String.prototype.reverse = function() {
 A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, 
 such as `madam` or `racecar`.
 
+'is this a palindrome?'.isPalindrome() // false
+'racecar'.isPalindrome() // true
+
 Write a prototype function in the `String` class that returns `true` if the string is palindrome, false otherwise.
 
 ## Pairing Lab time: The Cash Register
