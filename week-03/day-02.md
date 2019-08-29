@@ -78,6 +78,22 @@ box's padding:
 - padding-bottom
 - padding-left
 
+Padding with 4 properties (top, right, bottom, left):
+```css
+div {
+  padding: 25px 50px 75px 100px;
+}
+
+```
+Padding with 2 properties (top & bottom, right & left):
+```css
+div {
+  padding: 25px 50px;
+}
+```
+
+More explanations on Padding can be found [here](https://www.w3schools.com/css/css_padding.asp).
+
 #### Border
 
 Specifies the style of the box's border. There are a lot of border properties (eg border-bottom-righ-radius, etc), but the following properties can be used to control the box's border:
@@ -89,13 +105,16 @@ Specifies the style of the box's border. There are a lot of border properties (e
 
 #### Exercise time
 
-Show an error panel in the Bank app when the user tries to withdraw more money than their balance.
+Show an error panel in the Bank app that appears when:
+
+the user tries to withdraw more money than their balance.
 
 Style it as follows:
 
 - Red background
 - White font
-- Black dotted border
+- Black border 2px
+- Use padding and margins
 - The error panel should show a message like: `Sorry, you can't withdraw $XX, you don't have enough funds`
 
 #### Display
@@ -134,8 +153,7 @@ Go to [Google Fonts](https://www.google.com/fonts) and add the fonts that you wa
 
 ```css
 @import url('https://fonts.googleapis.com/css?family=Rubik');
-​
-​body {  
+h1 {  
   font-family: 'Rubik', sans-serif;
 }
 ```
@@ -143,6 +161,13 @@ Go to [Google Fonts](https://www.google.com/fonts) and add the fonts that you wa
 ### Exercise time
 
 Change the fonts of the bank app with your favourite ones from Google Fonts.
+
+Font changes should apply to all elements of the page like: 
+
+- h1
+- h2
+- list items
+- buttons
 
 ### Custom Fonts
 
