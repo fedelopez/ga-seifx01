@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+h1, h2, label, li, button {
+    font-family: 'Rubik', sans-serif;
+}
