@@ -14,7 +14,7 @@ Q, Z                               10
  */
 
 function letterValue(letter) {
-    const map = {
+    const letterToWeight = {
         'A':1,
         'E':1,
         'I':1,
@@ -42,7 +42,7 @@ function letterValue(letter) {
         'Q':10,
         'Z':10,
     };
-    return map[letter];
+    return letterToWeight[letter];
 }
 
 function scrabble(value) {

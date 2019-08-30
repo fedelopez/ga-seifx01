@@ -107,7 +107,7 @@ Specifies the style of the box's border. There are a lot of border properties (e
 
 Show an error panel in the Bank app that appears when:
 
-the user tries to withdraw more money than their balance.
+the user tries to add an account that has no name.
 
 Style it as follows:
 
@@ -115,7 +115,7 @@ Style it as follows:
 - White font
 - Black border 2px
 - Use padding and margins
-- The error panel should show a message like: `Sorry, you can't withdraw $XX, you don't have enough funds`
+- The error panel should show a message like: `Sorry, you can't add an account with no name`
 
 #### Display
 
