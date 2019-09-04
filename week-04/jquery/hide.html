@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+</head>
+<body>
+<button id="toggle-hide">Toggle hide</button>
+<div>
+    <img src="https://via.placeholder.com/150">
+    <img src="https://via.placeholder.com/150">
+    <img src="https://via.placeholder.com/150">
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+    document.getElementById('toggle-hide').addEventListener('click', function () {
+        const elementsByTagName = document.getElementsByTagName("img");
+        for (const element of elementsByTagName) {
+            if (element.style.display === 'none') {
+                element.style.display = '';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+    });
+</script>
+</body>
+</html>
