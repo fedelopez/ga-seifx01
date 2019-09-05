@@ -141,9 +141,8 @@ We can get the CSS attribute using `$("#yahoo").css('font-size')`
     <li><a style="color: mediumvioletred" href="https://www.imdb.com/title/tt0110912">Pulp Fiction</a></li>
     <li><a style="color: orange" href="https://www.imdb.com/title/tt0382932/">Ratatouille</a></li>
 </ul>
-
-</body>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</body>
 </html>
 ```
 
@@ -197,9 +196,8 @@ $('body').append(paragraph); // Also could use prepend, prependTo or appendTo as
     <li><a style="color: mediumvioletred" href="https://www.imdb.com/title/tt0110912">Pulp Fiction</a></li>
     <li><a style="color: orange" href="https://www.imdb.com/title/tt0382932/">Ratatouille</a></li>
 </ul>
-
-</body>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</body>
 </html>
 ```
 
@@ -305,6 +303,21 @@ paragraphs.each(function () {
   const element = $(this);  
   element.html(element.html() + " wowee!!!");
 });
+```
+
+## Exercise: Click count
+
+Create a website that tells the user how many times a button has been clicked:
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+<p>You have clicked the button <span>0</span> time(s).</p>
+<button>Click me!</button>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</body>
+</html>
 ```
 
 ## Homework

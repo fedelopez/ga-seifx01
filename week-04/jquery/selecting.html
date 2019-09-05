@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <h1>My Movie Site</h1>
 <h2>Favourite movies</h2>
 <ul>
@@ -9,16 +8,17 @@
     <li><a style="color: mediumvioletred" href="https://www.imdb.com/title/tt0110912">Pulp Fiction</a></li>
     <li><a style="color: orange" href="https://www.imdb.com/title/tt0382932/">Ratatouille</a></li>
 </ul>
-
-</body>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script>
-    $('a').each(function(index) {
-        console.log($(this).text());
-        console.log($(this).attr("href"));
-        if (index === 0) {
-            console.log($(this).css('color'));
-        }
-    })
+    // console.log the text color of the first film
+    console.log($('a:first-child').css('color'));
+    const titles = $('a');
+    for (let i = 0; i < titles.length; i++) {
+        // console.log the title of all the films
+        console.log(titles.eq(i).text());
+        // console.log the web link of all the films
+        console.log(titles.eq(i).attr('href'));
+    }
 </script>
+</body>
 </html>
