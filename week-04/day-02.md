@@ -305,21 +305,6 @@ paragraphs.each(function () {
 });
 ```
 
-## Exercise: Click count
-
-Create a website that tells the user how many times a button has been clicked:
-
-```html
-<!DOCTYPE html>
-<html>
-<body>
-<p>You have clicked the button <span>0</span> time(s).</p>
-<button>Click me!</button>
-<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-</body>
-</html>
-```
-
 ## Homework
 
 ​Read, watch, try:
