@@ -8,7 +8,7 @@
 
 ## Exercise: Click count
 
-Create a website that tells the user how many times a button has been clicked:
+Using HTML and JavaScript + jQuery create a website that tells the user how many times a button has been clicked:
 
 ```html
 <!DOCTYPE html>
@@ -31,8 +31,10 @@ The goal is to give each other a chance to step back and take a more holistic vi
 efforts of the this first assignment. At the end of the session, we should have a few chores to improve those areas 
 we are not so proud of.
 
-- Step 1: pair up: http://parrit.cfapps.io/seifx-sydney-seifx01
-- Step 2: code review each other's work
-- Step 3: show a piece of code you are proud of that you want to make sure others see
-- Step 4: show each other a piece of code you would like to improve
-- Step 5: write down action items of the areas you are not so proud of, and improve them!
+- pair up: http://parrit.cfapps.io/seifx-sydney-seifx01
+- code review each other's work
+- show to your pair 
+    - a piece of code you are proud of
+    - a piece of code you would like to improve
+- write down action items of the areas you are not so proud of, and improve them!
+- send your report (txt file would do it) to Aaron and myself via Slack

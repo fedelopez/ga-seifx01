@@ -2,10 +2,10 @@ const Account = function (name, balance) {
     this.name = name;
     this.balance = balance;
     this.deposit = function (amount) {
-        this.balance = this.balance + amount;
+        this.balance = this.balance + Number(amount);
     };
     this.withdraw = function (amount) {
-        const total = this.balance - amount;
+        const total = this.balance - Number(amount);
         if (total >= 0) {
             this.balance = total;
         }
@@ -57,7 +57,7 @@ function displayAccounts(bank) {
 
 function updateAccountBalance(accountName) {
     const account = gringottsBank.findAccount(accountName);
-    const accountElement = $("li:contains(" + accountName + ")");
+    const accountElement = $(`li:contains(${accountName})`);
     if (accountElement.length === 1) {
         accountElement.text(account.displayString());
     } else {
@@ -74,19 +74,19 @@ $('#add-account-button').click(function() {
 $('#remove-account-button').click(function() {
     const accountName = $('#account').val();
     gringottsBank.removeAccount(accountName);
-    $("li:contains(" + accountName + ")").remove();
+    $(`li:contains(${accountName})`).remove();
 });
 
 $('#deposit-button').click(function () {
     const accountName = $('#deposit-account-name').val();
-    const amount = Number($('#deposit-amount').val());
+    const amount = $('#deposit-amount').val();
     gringottsBank.deposit(accountName, amount);
     updateAccountBalance(accountName);
 });
 
 $('#withdraw-button').click(function () {
     const accountName = $('#deposit-account-name').val();
-    const amount = Number($('#withdraw-amount').val());
+    const amount = $('#withdraw-amount').val();
     gringottsBank.withdraw(accountName, amount);
     updateAccountBalance(accountName);
 });
