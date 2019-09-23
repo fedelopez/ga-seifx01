@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: lightgray;
+}
+
+#target {
+    height: 100vh;
+}
+
+#target div {
+    padding: 1rem;
+    color: yellow;
+    background-color: royalblue;
+    border-radius: 7px;
+    max-width: 10rem;
+    position: absolute;
+}

@@ -9,6 +9,9 @@ const Account = function (name, balance) {
         if (total >= 0) {
             this.balance = total;
         }
+    };
+    this.displayString = function () {
+        return `${this.name}: $${this.balance}`;
     }
 };
 const Bank = function (...accounts) {
@@ -45,37 +48,37 @@ const gringottsBank = new Bank(
 );
 
 function displayAccounts(bank) {
-    const accountList = document.getElementById("account-list");
-    while (accountList.firstChild) {
-        accountList.removeChild(accountList.firstChild);
-    }
+    const accountList = $("#account-list");
+    accountList.empty();
     for (const account of bank.accounts) {
-        const li = document.createElement("li");
-        li.innerHTML = `${account.name}: $${account.balance}`;
-        accountList.appendChild(li);
+        const li = `<li>${account.displayString()}</li>`;
+        accountList.append(li);
     }
 }
 
-document.getElementById('add-account-button').addEventListener('click', () => {
-    gringottsBank.addAccount(document.getElementById('account').value);
+$('#add-account-button').click(function() {
+    const accountName = $('#account').val();
+    gringottsBank.addAccount(accountName);
     displayAccounts(gringottsBank);
 });
 
-document.getElementById('remove-account-button').addEventListener('click', () => {
-    gringottsBank.removeAccount(document.getElementById('account').value);
+$('#remove-account-button').click(function () {
+    const accountName = $('#account').val();
+    gringottsBank.removeAccount(accountName);
     displayAccounts(gringottsBank);
 });
 
-document.getElementById('deposit-button').addEventListener('click', () => {
-    const account = document.getElementById('deposit-account-name').value;
-    const amount = Number(document.getElementById('deposit-amount').value);
-    gringottsBank.deposit(account, amount);
-    displayAccounts(gringottsBank);
+$('#deposit-button').click(function () {
+    const accountName = $('#deposit-account-name').val();
+    const amount = Number($('#deposit-amount').val());
+    gringottsBank.deposit(accountName, amount);
+    const account = gringottsBank.findAccount(accountName);
+    $(`li:contains(${account.name})`).text(account.displayString());
 });
 
-document.getElementById('withdraw-button').addEventListener('click', () => {
-    const account = document.getElementById('deposit-account-name').value;
-    const amount = Number(document.getElementById('withdraw-amount').value);
+$('#withdraw-button').click(function () {
+    const account = $('#deposit-account-name').val();
+    const amount = Number($('#withdraw-amount').val());
     gringottsBank.withdraw(account, amount);
     displayAccounts(gringottsBank);
 });
