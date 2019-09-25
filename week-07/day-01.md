@@ -506,79 +506,9 @@ Random.rand(5...10) # Does not include 5 and 10
 * ​​[Guess The Number​​](https://gist.github.com/wofockham/275f43b104c81c641849)
 * ​[Solution​​](https://github.com/wofockham/wdi-30/tree/master/05-ruby)
 
-## Methods
+### Ruby (General) - Recommended Readings
 
-Methods are declared using the `def` keyword and called using the method's name.
-
-Methods in Ruby have an **implicit return**, meaning that you don't need to use the `return` keyword in your methods - Ruby returns the last statement in a method on its own.
-
-### Methods with no arguments
-
-```ruby
-# Method definition
-def hello
-    puts "Hello"
-end
-
-# Method call
-hello
-# => "Hello"
-```
-
-### Methods with arguments <a id="methods-with-arguments"></a>
-
-For methods with defined parameters, arguments can be passed in with or without parentheses.
-
-```ruby
-def hello( name )
-    puts "Hello, #{name}"
-end
-
-hello("Josh")
-# => "Hello, Josh"
-
-hello "Josh"
-# => "Hello, Josh"
-```
-
-If a method is defined with one or more parameters but is called without passing in the right number of arguments, an error will be thrown \(`Argument Error: wrong number of arguments`\).
-
-### Methods with default arguments
-
-To avoid `Argument Error`s thrown by calling an argument without the requisite number of arguments, we can set default 
-parameters in the method definition.
-
-```ruby
-def hello( name = "World" )
-  puts "Hello, #{name}"
-end
-
-hello
-# => "Hello, World"
-
-hello("Josh")
-# => "Hello, Josh"
-
-3.times { hello("Josh") }
-# => "Hello, Josh"
-# => "Hello, Josh"
-# => "Hello, Josh"
-
-def add(a, b)
-  a + b
-end
-
-add 4, 11
-# => 15
-
-new_total = add 4, 11
-new_total
-# => 15
-```
-
-### _Ruby (General) - Recommended Readings
-
-* ​[Why's \(Poignant\) Guide To Ruby](http://poignant.guide/)​
+* ​[Why's (Poignant) Guide To Ruby](http://poignant.guide/)​
 * ​[The Bastard's Book of Ruby](http://ruby.bastardsbook.com/)​
 
 ## Homework
