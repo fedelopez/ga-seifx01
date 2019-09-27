@@ -3,7 +3,7 @@
 ## Agenda
 
 - Wrapping up arrays
-- 
+- Hashes
 
 ## Wrapping up arrays
 
@@ -56,9 +56,14 @@ Check out [this site](https://sites.google.com/site/dhtopics/Home/ruby-essential
 * [Arrays Exercises](https://gist.github.com/wofockham/64bc0aa2857797dc4e57)
 * [Solution](https://github.com/wofockham/wdi-30/blob/master/05-ruby/arrays.rb)
 
-### Hashes
+## Hashes
 
 Also called `dictionaries`, `hash maps` and `hash tables`.
+
+- Unlike arrays which are mere lists, Hashes are like dictionaries
+- We use them to look up one thing by another thing
+
+> Please get me the value that is associated with this key
 
 ![hash](https://github.com/fedelopez/ga-seifx01/blob/master/week-07/img/hash-table.png)
 
@@ -66,58 +71,88 @@ Great explanation [here](http://ruby-for-beginners.rubymonstas.org/built_in_clas
 
 ### Creation of a hash
 
-```ruby
-# Literal Constructor
-# "=>"" is called a hash rocket
+#### Literal Constructor
 
+Creating an empty hash:
+
+```ruby
 hash = {}
+```
+
+Creating a hash with 2 entries:
+
+```ruby
+serge = {
+    "name" => "Serge",
+    "nationality" => "French"
+}
+```
+
+`=>` is called a **hash rocket**
+
+### Accessing elements
+
+```ruby
+p serge["name"]
+# => "Serge"
+p serge["nationality"]
+# => "French"
+```
+
+Creating a hash with 2 entries, the keys are symbols:
+
+```ruby
 serge = {
     :name => "Serge",
     :nationality => "French"
 }
+```
+
+Accessing keys that are symbols is done the same way as with strings:
+
+```ruby
+p serge[:nationality]
+# => "French"
+```
+
+Alternatively, you can define keys as symbols this way:
+
+```ruby
 serge = {
-    "name" => "Serge",
-    "nationality" => "French"
-}
-serge = { # Keys stored as symbols!
     name: "Serge",
     nationality: "French"
 }
-# This will be automatically converted to 'hash rocket' styles
+p serge[:nationality]
+# => "French"
+```
 
-# Class Constructor
+#### Class Constructor
 
+```ruby
 hash = Hash.new
+```
 
-# Normally a hash will return nil if the property is undefined
-# We can pass in default values to this quite easily though
+A hash will return nil if the property is undefined:
 
-hash = Hash.new( "JOEL" )
+```ruby
+hash["Monica"]
+=> nil
+```
+
+We can pass in default values to this quite easily though:
+
+```ruby
+hash = Hash.new("JOEL")
 hash["JOSH"] #=> Will return "JOEL"
+hash["MARY"] #=> Will return "JOEL"
+```
 
-# If you create the hash using the literal though...
+Default values can be returned using the `default` method too:
 
+```ruby
 hash = {}
 hash.default = "JOEL"
 hash["JOSH"] #=> Will return "JOEL"
-```
-
-### **Accessing elements**
-
-```ruby
-serge = { # Keys stored as symbols!
-    name: "Serge",
-    nationality: "French"
-}
-
-serge[:name]
-
-serge = {
-    "name" => "Serge",
-    "nationality" => "French"
-}
-
-serge["name"]
 ```
 
 ### Adding items to a hash
@@ -129,8 +164,23 @@ serge[:counterpart] = "Jane (temporarily)"
 
 # This is the same way as you access them!
 
-p serge[:counterpart] # => "Jane (temporarily)"
+p serge[:counterpart] 
+# => "Jane (temporarily)"
 ```
+
+### Exercise
+
+Given the following data structure:
+
+```ruby
+h = {0 => "Zero", 1 => "One", :two => "Two", "two" => 2}
+```
+
+- How would you return the string `One`?
+- How would you return the string `Two`?
+- How would you return the number `2`?
+- How would you add `{3 => "Three"}` to the hash?
+- How would you add `{:four => 4}` to the hash?
 
 ### Removing items from a hash
 
@@ -141,38 +191,70 @@ serge.delete(:counterpart)
 ### Iterating over hashes
 
 ```ruby
-serge = { # Keys stored as symbols!
+serge = {
     name: "Serge",
     nationality: "French"
 }
-
-# Will run for keys and values
-serge.each do |all|
-    puts all
+serge.each do |entry|
+    puts entry
 end
+```
 
-# Will run for each key and value pair
+Will run for keys and values, entry is an array of 2 elements, the key and the value
+
+### Run for each key and value pair
+
+```ruby
 serge.each do |key, value|
     puts "Key: #{key} and Value: #{value}"
 end
+```
 
-# Return the current key
+### Run for each key
+
+```ruby
 serge.keys.each do |key|
     puts key
 end
+```
 
-# Return the current value
+### Run for each value
+
+```
 serge.values.each do |value|
     puts value
 end
-
-# Thousands of other ways to do this though
 ```
 
-### Ruby - Collections - Exercises
+Thousands of other ways to do this though :)
 
-* [Array and hash access](https://gist.github.com/wofockham/50a52e9399075709fe87)
-* [Solution](https://github.com/wofockham/wdi-30/tree/master/05-ruby)
+### Exercise
+
+```ruby
+users = {
+  "Jonathan" => {
+    :twitter => "tronathan",
+    :favorite_numbers => [12, 42, 75],
+  },
+  "Erik" => {
+    :twitter => "sferik",
+    :favorite_numbers => [8, 12, 24],
+  },
+  "Anil" => {
+    :twitter => "bridgpal",
+    :favorite_numbers => [12, 14, 85],
+  },
+}
+```
+
+1. How would you access Jonathan's Twitter handle (i.e. the string `"tronathan"`)?
+1. How would you add the number `7` to Erik's favorite numbers?
+1. How would you add yourself to the users hash?
+1. How would you return the array of Erik's favorite numbers?
+1. How would you return the smallest of Erik's favorite numbers?
+1. How would you return an array of Anil's favorite numbers that are also even?
+1. How would you return an array of the favorite numbers common to all users?
+1. How would you return an array containing all users' favorite numbers, sorted, and excluding duplicates?
 
 ### Homework
 
