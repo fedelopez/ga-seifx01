@@ -4,6 +4,7 @@
 
 - Wrapping up arrays
 - Hashes
+- Pair programming Ruby Lab: MTA II
 
 ## Wrapping up arrays
 
@@ -11,11 +12,17 @@
 
 Elements can be selected from an array according to criteria defined in a block. The selection can happen in a destructive or a non-destructive manner. While the destructive operations will modify the array they were called on, the non-destructive methods usually return a new array with the selected elements, but leave the original array unchanged.
 
+#### Select
+
 ```ruby
-arr = [1, 2, 3, 4, 5, 6]
-arr.select { |a| a > 3 }
+[1, 2, 3, 4, 5, 6].select { |a| a > 3 }
 # => [4, 5, 6]
-arr.reject { |a| a > 3 }
+```
+
+#### Reject
+
+```ruby
+[1, 2, 3, 4, 5, 6].reject { |a| a > 3 }
 # => [1, 2, 3]
 ```
 
@@ -23,9 +30,16 @@ arr.reject { |a| a > 3 }
 
 ### Deleting items from an array
 
+#### delete_if
+
 ```ruby
 arr.delete_if { |a| a < 4 }
 # => [4, 5, 6]
+```
+
+#### keep_if
+
+```ruby
 arr.keep_if { |a| a < 4 }
 # => [1, 2, 3]       
 ```
@@ -36,16 +50,16 @@ arr.keep_if { |a| a < 4 }
 array1 = ["x", "y", "z"]
 array2 = ["w", "x", "y"]
 
-array1 | array2
 # Combine Arrays & Remove Duplicates (Union)
+array1 | array2
 # => ["x", "y", "z", "w"]
 
-array1 & array2
 # Get Common Elements between Two Arrays (Intersection)
+array1 & array2
 # => ["x", "y"]
 
-array1 - array2
 # Remove Any Elements from Array 1 that are contained in Array 2 (Difference)
+array1 - array2
 # => ["z"]
 ```
 
@@ -132,11 +146,19 @@ p serge[:nationality]
 hash = Hash.new
 ```
 
-A hash will return nil if the property is undefined:
+A hash will return `nil` if the property is undefined:
 
 ```ruby
 hash["Monica"]
 => nil
+```
+
+`fetch` does just the same as the square bracket lookup [] discussed before, but it will raise an error if the key 
+is not defined:
+
+```ruby
+hash.fetch("Monica")
+KeyError: key not found: "Monica"
 ```
 
 We can pass in default values to this quite easily though:
@@ -181,6 +203,13 @@ h = {0 => "Zero", 1 => "One", :two => "Two", "two" => 2}
 - How would you return the number `2`?
 - How would you add `{3 => "Three"}` to the hash?
 - How would you add `{:four => 4}` to the hash?
+
+### Merging 2 hashes
+
+```ruby
+{ "one" => "eins" }.merge({ "two" => "zwei" })
+=> {"one"=>"eins", "two"=>"zwei"}
+```
 
 ### Removing items from a hash
 
@@ -256,6 +285,6 @@ users = {
 1. How would you return an array of the favorite numbers common to all users?
 1. How would you return an array containing all users' favorite numbers, sorted, and excluding duplicates?
 
-### Homework
+### Pair Programming Ruby Lab 
 
 * [MTA II - Ruby](https://gist.github.com/wofockham/399e315a90e04a867455)
