@@ -60,7 +60,7 @@ Check out [this site](https://sites.google.com/site/dhtopics/Home/ruby-essential
 
 Also called `dictionaries`, `hash maps` and `hash tables`.
 
-![hash](https://github.com/fedelopez/repository/blob/master/ga-seifx01/week-07/img/hash-table.png)
+![hash](https://github.com/fedelopez/ga-seifx01/blob/master/week-07/img/hash-table.png)
 
 Great explanation [here](http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html)
 
