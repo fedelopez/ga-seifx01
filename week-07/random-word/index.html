@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Word</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="target"></div>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.js"></script>
+<script>
+    setInterval(function () {
+        const target = $('#target');
+        target.empty();
+        const x = Math.floor(Math.random() * target.width());
+        const y = Math.floor(Math.random() * target.height());
+        const word = faker.random.word();
+        target.append(`<div style="top: ${y}px; left: ${x}px;">${word}</div>`);
+    }, 2000)
+</script>
+</body>
+</html>
