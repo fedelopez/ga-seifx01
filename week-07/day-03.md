@@ -3,6 +3,7 @@
 ## Agenda
 
 - Wrapping up arrays
+- SEIFX01 Guest Speaker Taryn Ewens (Advanced CSS) 1pm
 - Hashes
 - Pair programming Ruby Lab: MTA II
 
@@ -43,6 +44,37 @@ arr.delete_if { |a| a < 4 }
 arr.keep_if { |a| a < 4 }
 # => [1, 2, 3]       
 ```
+
+#### reduce
+
+```ruby
+p [-1, 0, 1, 2, 3, 45].reduce { |acc, current| acc + current}
+=> 50
+```
+
+### Exercise: Preventing Spacecraft crash in Mars!
+
+Welcome to the Jet Propulsion Laboratory cadets.
+
+We are about to land a spacecraft in Mars to study its climate.
+
+We need to convert the following data vector from miles to Km
+
+```ruby
+landing_vector = [99, 97, true, 68, '-', 49, 50, 10, 9, '|', 2, 1]
+```
+
+- 1 mile = 1.60 Km
+
+Your job is to:
+
+- clean up the array from unwanted data 
+- map each mile to its counterpart Km
+- sum all the entries to get a total distance
+- print the total number of Kms and ultimately...
+- prevent the crash!
+
+Use only function composition. 
 
 ### Ruby array tricks
 
