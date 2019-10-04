@@ -98,10 +98,6 @@ Alternatively, if you wrote this in a file, you can import that SQL into the dat
 SELECT * FROM people;
 ```
 
-### Exercise
-
-- Create a Database named ``
-
 #### Select only specific attributes of all the records in the person table
 
 ```sql
@@ -160,6 +156,8 @@ Select all attributes from all records in the person database where the `first_n
 SELECT * FROM people WHERE first_name IS NULL;
 ```
 
+Alternatively, you can use `IS NOT NULL` to select non-null values.
+
 ### Exercise
 
 From the Employee table created above:
@@ -209,7 +207,8 @@ Tip: you can order by ascending/descending using the `asc` and `desc` operators 
 
 From the Employee table created above:
 
-- Count number of employees 
+- Count number of employees
+- Write a query to display the columns in a specific order by last_name and then by name.  
 - Who are the 3 best paid employees? 
 - Who is the less paid employee? 
 
@@ -319,4 +318,5 @@ Select employees from Sydney.
 
 ### Homework
 
-* Go through DB exercises on W3Schools: https://www.w3schools.com/sql/exercise.asp
+* Go through the exercises on w3resource: https://www.w3resource.com/sql-exercises/sql-retrieve-from-table.php
+* Go through the exercises on W3Schools: https://www.w3schools.com/sql/exercise.asp
