@@ -31,11 +31,11 @@ In terms of actual structure of an application, this is the structure of a CRUD 
 
 | CRUD | HTTP VERBS | URLS | SQL |
 | :--- | :--- | :--- | :--- |
-| CREATE | POST | /employees | INSERT |
-| READ | GET | /employees | SELECT |
-|  | GET | /employees/:id | SELECT |
-| UPDATE | POST | /employees/:id | UPDATE |
-| DELETE | DELETE | /employees/:id | DELETE |
+| CREATE | `POST` | /employees | INSERT |
+| READ | `GET` | /employees | SELECT |
+|  | `GET` | /employees/:id | SELECT |
+| UPDATE | `POST` | /employees/:id | UPDATE |
+| DELETE | `DELETE` | /employees/:id | DELETE |
 
 CRUD is the foundation of most applications on the web, it is the thing that powers it! Important to get the principles of it.
 
@@ -49,7 +49,7 @@ Create a project with a `Gemfile` using the command `bundler init`
 
 Add to the `Gemfile` the following entry:
 
-`gem 'sqlite3`
+`gem 'sqlite3'`
 
 Then in your `main.rb` file import it: `require 'sqlite3'`
 
