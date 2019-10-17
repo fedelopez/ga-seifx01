@@ -39,7 +39,7 @@ brew install postgres
 brew services start postgres
 ```
 
-Confirm that Postgres has been installed and your $PATH configured properly:
+Confirm that Postgres has been properly installed:
 
 ```bash
 psql #This should return:
@@ -244,7 +244,7 @@ INSERT INTO contact_info (first_name, email, phone) VALUES ('Rina', null, '04478
 Now let's add the relation:
 
 ```sql
-ALTER TABLE employee ADD COLUMN c INTEGER;
+ALTER TABLE employee ADD COLUMN contact_info_id INTEGER;
 ALTER TABLE employee ADD FOREIGN KEY (contact_info_id) REFERENCES contact_info(id);
 ALTER TABLE employee ADD CONSTRAINT contact_info_id_unique UNIQUE (contact_info_id);
 UPDATE employee SET contact_info_id = 1 WHERE id = 1;
@@ -542,6 +542,19 @@ And the view under `app/views/pages/home.html.erb`:
     <li><%= employee.first_name %></li>
   <% end %>
 </ul>
+```
+
+### Troubleshooting
+
+#### Initialise the DB
+
+This is helpful when you want to start over:
+
+```bash
+dropdb rails_postgres_development
+createdb rails_postgres_development
+rails db:migrate
+rails db:seed
 ```
 
 ### Homework
