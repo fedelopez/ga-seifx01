@@ -2,7 +2,7 @@
 
 ## Agenda
 
-* Ruby- Class inheritance
+* Ruby - Class inheritance
 * Ruby on Rails - Introduction
 * Ruby on Rails - Basic Project Setup (no database)
 * Ruby on Rails - Helpers
