@@ -1,0 +1,6 @@
+<h2><%= @employee['first_name'] %></h2>
+<p>Business title: <%= @employee['business_title'] %></p>
+<p>Salary: <%= @employee['salary'].to_s %></p>
+<form action="/employees/edit/<%= @employee['id'].to_s %>">
+  <input type="submit" value="Edit">
+</form>

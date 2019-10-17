@@ -1,0 +1,12 @@
+<h2>Edit <%= @employee['first_name'] %></h2>
+<form method="post" action="/employees/<%= @employee['id'] %>">
+  <label>
+    Business title:
+    <input type="text" name="business_title" value="<%= @employee['business_title'] %>">
+  </label>
+  <label>
+    Salary:
+    <input type="number" name="salary" value="<%= @employee['salary'] %>">
+  </label>
+  <input type="submit" >
+</form>

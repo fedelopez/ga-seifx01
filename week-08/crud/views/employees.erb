@@ -1,0 +1,7 @@
+<ul>
+  <% @employees.each do |employee| %>
+    <a href="/employees/<%= employee['id'].to_s %>">
+      <li><%= employee['id'].to_s + ': ' + employee['first_name'] %></li>
+    </a>
+  <% end %>
+</ul>
