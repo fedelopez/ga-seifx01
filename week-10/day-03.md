@@ -436,14 +436,14 @@ gem 'bcrypt', '~> 3.1.7'
 
 ```bash
 bundle
-=> Fetching bcrypt 3.1.13
-   Installing bcrypt 3.1.13 with native extensions
+# ...
+# Fetching bcrypt 3.1.13
+# Installing bcrypt 3.1.13 with native extensions
+# ...
 ```
 In our User model, we need to add the following line:
 
-```ruby
-has_secure_password
-```
+`has_secure_password`
 
 Including this method in our user model adds methods to set and authenticate encrypted passwords. 
 In order for the `has_secure_password` method to work, your database table _must_ have a `password_digest` column.
