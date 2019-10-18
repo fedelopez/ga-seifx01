@@ -127,6 +127,16 @@ rails db:migrate
 rails db:seed
 ```
 
+### Choosing Between belongs_to and has_one
+
+If you want to set up a one-to-one relationship between two models, you'll need to add belongs_to to one, and 
+`has_one` to the other. How do you know which is which?
+
+The distinction is in where you place the foreign key (it goes on the table for the class declaring the belongs_to association), 
+but you should give some thought to the actual meaning of the data as well. 
+
+The `has_one` relationship says that one of something is yours - that is, that something points back to you. 
+
 ### `has_many`
 
 A has_many association indicates a one-to-many connection with another model. You'll often find this association on the 
