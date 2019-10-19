@@ -21,13 +21,13 @@ just as easy to set up as any other database and works on Heroku (where we will 
 To start a Rails application with a Postgres DB database, run:
 
 ```bash
-rails new employee_management -T --skipt-git --database=postgresql
+rails new employee_management -T --skip-git --database=postgresql
 ```
 
 or simply
 
 ```bash
-rails new employee_management -T --skipt-git -d postgresql
+rails new employee_management -T --skip-git -d postgresql
 ```
 
 Create the Postgres DB needed for Dev environment:
@@ -119,7 +119,7 @@ Now we can create the relationship between objects in the `seeds.rb`:
 
 ```ruby
 contact_info = ContactInfo.create(contact_name: 'Popeye')
-employee = Employee.create(first_name: 'Olivia', contact_info_id: @contact_info.id)
+employee = Employee.create(first_name: 'Olivia', contact_info_id: contact_info.id)
 ```
 
 ```bash
@@ -235,15 +235,21 @@ Update the `routes.rb` file with the new view on the root path:
 root :to => 'pages#home'
 ```
 
-### Exercise: show contact information
+### Exercise: show employee postcode
 
-Show the contact name next for each employee of the R&D department:
+Add a new address table with the following schema:
+
+```bash
+id serial, postcode int
+```
+
+then show the postcode next for each employee of the R&D department:
 
 ```html
 <h1>Research & Development Employees</h1>
 <ul>
-    <li>Allan contact: Mia</li>
-    <li>Jane, contact: Nancy</li>
+    <li>Allan, postcode: 2090</li>
+    <li>Jane, postcode: 2000</li>
 </ul>
 ```
 
@@ -418,7 +424,7 @@ Let's create our User model!!
 ### User model and users database table
 
 ```
-rails new rails-auth -T --skipt-git --database=postgresql
+rails new rails-auth -T --skip-git --database=postgresql
 ```
 
 ```
