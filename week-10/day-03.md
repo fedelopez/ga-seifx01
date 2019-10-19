@@ -259,6 +259,13 @@ A `has_many :through` association is often used to set up a many-to-many connect
 This association indicates that the declaring model can be matched with zero or more instances of another model by 
 proceeding through a third model.
 
+```bash
+rails generate model Allocation
+rails generate model Project
+```
+
+And the models:
+
 ```ruby
 class Employee < ActiveRecord::Base  
   has_many :allocations  
@@ -276,12 +283,7 @@ end
 end
 ```
 
-```bash
-rails generate model Allocation
-rails generate model Project
-```
-
-And the models:
+Now let's edit the migration files:
 
 ```ruby
 class CreateAllocations < ActiveRecord::Migration[6.0]
