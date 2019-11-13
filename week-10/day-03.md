@@ -33,7 +33,11 @@ rails new employee_management -T --skip-git -d postgresql
 Create the Postgres DB needed for Dev environment:
 
 ```bash
-createdb employee_management_development
+# move to the newly created folder
+cd employee_management
+
+# create the db
+rails db:create
 ```
 
 ## Ruby on Rails - Associations II
@@ -50,14 +54,6 @@ Rails supports six types of associations:
 * `has_one :through`
 * `has_and_belongs_to_many`
 
-Let's start by creating the models:
-
-```bash
-rails generate model contact_info
-rails generate model department
-rails generate model employee
-```
-
 ### `belongs_to`
 
 A belongs_to association sets up a one-to-one connection with another model, such that each instance of the declaring 
@@ -65,6 +61,13 @@ model "belongs to" one instance of the other model.
 
 For example, if your application includes employees and contacts, and each contact can be assigned to exactly one employee, 
 you'd declare the order model this way:
+
+Let's start by creating the models:
+
+```bash
+rails generate model contact_info
+rails generate model employee
+```
 
 ```ruby
 class Employee < ActiveRecord::Base  
@@ -115,15 +118,64 @@ class CreateContactInfos < ActiveRecord::Migration[6.0]
 end
 ```
 
-Now we can create the relationship between objects in the `seeds.rb`:
+Now we can run the migration:
+
+```bash
+rails db:migrate
+```
+
+Let's confirm our tables were properly created:
+
+```bash
+psql employee_management_development
+```
+
+Once connected to Postres, type the following:
+
+```bash
+\d contact_infos
+```
+
+You should see the following schema:
+
+```text
+    Column    |              Type              | Collation | Nullable |                  Default
+--------------+--------------------------------+-----------+----------+-------------------------------------------
+ id           | bigint                         |           | not null | nextval('contact_infos_id_seq'::regclass)
+ contact_name | text                           |           |          |
+ created_at   | timestamp(6) without time zone |           | not null |
+ updated_at   | timestamp(6) without time zone |           | not null |
+Indexes:
+    "contact_infos_pkey" PRIMARY KEY, btree (id)
+```
+
+Similarly, ensure the employee table was created with a field referencing contact_info:
+
+```text
+                                            Table "public.employees"
+     Column      |              Type              | Collation | Nullable |                Default
+-----------------+--------------------------------+-----------+----------+---------------------------------------
+ id              | bigint                         |           | not null | nextval('employees_id_seq'::regclass)
+ first_name      | text                           |           |          |
+ contact_info_id | integer                        |           |          |
+ created_at      | timestamp(6) without time zone |           | not null |
+ updated_at      | timestamp(6) without time zone |           | not null |
+ department_id   | integer                        |           |          |
+Indexes:
+    "employees_pkey" PRIMARY KEY, btree (id)
+``` 
+
+Now we can initialise the DB by instantiating some objects in the `seeds.rb`:
 
 ```ruby
 contact_info = ContactInfo.create(contact_name: 'Popeye')
 employee = Employee.create(first_name: 'Olivia', contact_info_id: contact_info.id)
+puts "Employee #{employee.first_name} created with id #{employee.id}"
 ```
 
+Run the db:seed command to instruct Rails to initialise the DB with the script above:
+
 ```bash
-rails db:migrate
 rails db:seed
 ```
 
@@ -143,36 +195,46 @@ A has_many association indicates a one-to-many connection with another model. Yo
 "other side" of a `belongs_to` association. This association indicates that each instance of the model has zero or more 
 instances of another model. For example, in an application containing customers and orders, the customer model could be declared like this:
 
+```bash
+rails generate model department
+```
+
 ```ruby
 class Department < ApplicationRecord
   has_many :employees
 end
 ```
 
-And the migration file:
-
-```ruby
-class CreateDepartments < ActiveRecord::Migration[6.0]
-  def change
-    create_table :departments do |t|
-      t.text :department_name
-      t.timestamps
-    end
-  end
-end
-```
-
-Now we need to add the relation in the employee:
-
-`rails generate migration add_department_id_to_employee department_id:integer`
-
-Employee looks now like this:
+Employee should look like this:
 
 ```ruby
 class Employee < ApplicationRecord
   belongs_to :contact_info
   belongs_to :department
 end
+```
+
+And the migration file, including the create table for department and adding a new column:
+
+```ruby
+class CreateDepartments < ActiveRecord::Migration[6.0]
+  def change
+    create_table :departments do |t|
+      t.text :name
+      t.timestamps
+    end
+  end
+  
+  def change
+      add_column :employees, :department_id, :integer
+  end
+end
+```
+
+Let's run the migration again:
+
+```bash
+rails db:migrate
 ```
 
 A few things to note about `has_many` associations:
@@ -189,8 +251,8 @@ Initialise the `seeds.rb` file with the following data:
 contact_info_1 = ContactInfo.create(contact_name: 'Mia')
 contact_info_2 = ContactInfo.create(contact_name: 'Nancy')
 contact_info_3 = ContactInfo.create(contact_name: 'Joe')
-department_1 = Department.create(department_name: 'Research & Development')
-department_2 = Department.create(department_name: 'Marketing')
+department_1 = Department.create(name: 'Research & Development')
+department_2 = Department.create(name: 'Marketing')
 
 Employee.create(first_name: 'Allan', contact_info_id: contact_info_1.id, department_id: department_1.id)
 Employee.create(first_name: 'Jane', contact_info_id: contact_info_2.id, department_id: department_1.id)
@@ -212,7 +274,7 @@ rails generate controller Pages home
 ```ruby
 class PagesController < ApplicationController
   def home
-    @department = Department.all.select { |d| d.department_name = 'Research & Development' }.first
+    @department = Department.all.select { |d| d.name = 'Research & Development' }.first
     @employees = Employee.where("department_id = #{@department.id}")
   end
 end
@@ -301,7 +363,7 @@ end
 class CreateProjects < ActiveRecord::Migration[6.0]
   def change
     create_table :projects do |t|
-      t.text :project_name
+      t.text :name
       t.text :description
       t.timestamps
     end
@@ -318,15 +380,15 @@ mia = ContactInfo.create(contact_name: 'Mia')
 nancy = ContactInfo.create(contact_name: 'Nancy')
 joe = ContactInfo.create(contact_name: 'Joe')
 
-research = Department.create(department_name: 'Research & Development')
-marketing = Department.create(department_name: 'Marketing')
+research = Department.create(name: 'Research & Development')
+marketing = Department.create(name: 'Marketing')
 
 allan = Employee.create(first_name: 'Allan', contact_info_id: mia.id, department_id: research.id)
 jane = Employee.create(first_name: 'Jane', contact_info_id: nancy.id, department_id: research.id)
 john = Employee.create(first_name: 'John', contact_info_id: joe.id, department_id: marketing.id)
 
-migration = Project.create(project_name: 'Migration', description: 'Website migration')
-xmas = Project.create(project_name: 'XMAS', description: 'XMAS Party 2019')
+migration = Project.create(name: 'Migration', description: 'Website migration')
+xmas = Project.create(name: 'XMAS', description: 'XMAS Party 2019')
 
 Allocation.create(employee_id: allan.id, project_id: migration.id)
 Allocation.create(employee_id: allan.id, project_id: xmas.id)
@@ -381,12 +443,12 @@ A `has_and_belongs_to_many` association creates a direct many-to-many connection
 intervening model. This association is often abbreviated to 'HABTM'.
 
 ```ruby
-class Assembly < ActiveRecord::Base  
-  has_and_belongs_to_many :parts
+class Employee < ActiveRecord::Base  
+  has_and_belongs_to_many :projects
 end​
 
-class Part < ActiveRecord::Base  
-  has_and_belongs_to_many :assemblies
+class Project < ActiveRecord::Base  
+  has_and_belongs_to_many :employees
 end
 ```
 
@@ -397,8 +459,8 @@ end
 This is helpful when you want to start over:
 
 ```bash
-dropdb rails_postgres_development
-createdb rails_postgres_development
+rails db:drop
+rails db:create
 rails db:migrate
 rails db:seed
 ```
@@ -636,12 +698,6 @@ Our session controller has no associated model and only requires three actions -
 rails generate controller Session new create destroy
 ```
 
-Our pages controller will be the main entry point of the app
-
-```bash
-rails generate controller Pages home
-```
-
 Note: This will create two views that we don't need. Delete those.
 
 ```bash
@@ -659,11 +715,16 @@ get 'session/destroy'.
 
 #### Setup login routes
 
+Our pages controller will be the main entry point of the app
+
+```bash
+rails generate controller Pages home
+```
+
 Add the following routes to your config/routes.rb file:
 
 ```ruby
-root :to => 'pages#home'              # Replace this with whatever you want your root_path to be.
-                                      # This path is where unauthorized users will be redirected_to.
+root :to => 'pages#home'            
 get '/login' => 'session#new'         # This will be our sign-in page.
 post '/login' => 'session#create'     # This will be the path to which the sign-in form is posted
 delete '/login' => 'session#destroy'  # This will be the path users use to log-out.
