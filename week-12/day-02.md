@@ -357,6 +357,18 @@ Add a task to run the end to end tests:
 ...
 ```
 
+Also add this in `package.json` to prevent `jest` from running Cypress test:
+
+```text
+...
+    "jest": {
+      "testPathIgnorePatterns": [
+        "cypress/"
+      ]
+    }
+...
+```
+
 Create a file named `bank.spec.js` under `cypress/integration`
 
 ```js
