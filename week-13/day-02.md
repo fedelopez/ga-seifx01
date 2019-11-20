@@ -492,6 +492,8 @@ componentWillUnmount() {
 }
 ```
 
+Read more about component lifecycle: [React Lifecycle Methods – A Deep Dive](https://programmingwithmosh.com/javascript/react-lifecycle-methods/)
+
 ### React Developer tools
 
 Install in Chrome from [this link](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
