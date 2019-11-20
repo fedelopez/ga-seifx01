@@ -7,7 +7,7 @@ What we covered today:
   * Props
   * Events
 
-Warm-up
+## Warm-up
 
 * [Text Soup 2](https://github.com/Yiannimoustakas/sei31-homework/tree/master/warmups/week07/day05_text_soup_2)
 
@@ -351,12 +351,38 @@ export default ClickListener;
 
 Read more about stateful components [here](https://reactjs.org/docs/faq-state.html).
 
+### Working with form input elements
+
+```jsx harmony
+import React from 'react';
+class InputListener extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {name: 'World'};
+    }
+
+    handleChange(e) {
+        this.setState({name: e.target.value});
+    }
+
+    render() {
+        return (
+            <div>
+                <p>Hello, {this.state.name}!</p>
+                <input type='text' onChange={(event) => this.handleChange(event)}/>
+            </div>
+        )
+    }
+}
+export default InputListener;
+``` 
+
 ### Lists and Keys
 
 Let's recap how we transform lists in JavaScript:
 
 ```javascript
-const groceries = ['salad', 'carrots', 'bananas']
+const groceries = ['salad', 'carrots', 'bananas'];
 const toUppercase = groceries.map(grocery => grocery.toUpperCase());
 console.log(toUppercase);
 ```
