@@ -3,9 +3,11 @@
 What we covered today:
 
 * React
+  * Getting started
   * Components
   * Props
-  * Events
+  * State
+  * Lists and Keys
 
 ## Warm-up
 
