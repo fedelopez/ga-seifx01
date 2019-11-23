@@ -435,7 +435,7 @@ It is a little bit more simple to use than `fetch`, as among other features it a
 import React from 'react';
 import Axios from 'axios';
 
-export default class Translator extends React.Component {
+export default class FactFromNumber extends React.Component {
     state = {
         factNumber: '',
         factText: ''
@@ -529,7 +529,7 @@ export default App;
 ```jsx harmony
 import React from 'react';
 import './App.css';
-import { Router } from "@reach/router"
+import { Router } from '@reach/router'
 
 const User = (props) => (
     <div>
@@ -548,6 +548,33 @@ function App() {
 
 export default App;
 ```
+
+### Navigate programmatically
+
+If you need to navigate programmatically (like after a form submits), import `navigate`:
+
+```jsx harmony
+import { navigate } from '@reach/router'
+
+const Invoices = () => (
+  <div>
+    <NewInvoiceForm
+      onSubmit={async event => {
+        const newInvoice = await createInvoice(event.target);
+        navigate(`/invoices/${newInvoice.id}`);
+      }}
+    />
+  </div>
+)
+```
+
+## Exercise time: navigation
+
+Create a React web app based on `http://numbersapi.com/` that has 3 pages:
+
+- Home: this page welcomes the user and contains links to the other pages
+- Trivia: Accessed with the route `/trivia/:number`, this shows a fact based on the number passed in the URL parameter
+- Math: Accessed with the route `/:number/math`, this shows a math fact based on the number passed in the URL parameter
 
 ## Debugging
 
