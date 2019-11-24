@@ -601,7 +601,7 @@ Create a React web app based on `http://numbersapi.com/` that has 3 pages:
 
 - Home: this page welcomes the user and contains links to the other pages
 - Trivia: Accessed with the route `/trivia/:number`, this shows a fact based on the number passed in the URL parameter
-- Math: Accessed with the route `/:number/math`, this shows a math fact based on the number passed in the URL parameter
+- Math: Accessed with the route `/math/:number`, this shows a math fact based on the number passed in the URL parameter
 
 ## Debugging
 
