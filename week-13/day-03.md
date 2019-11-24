@@ -554,18 +554,45 @@ export default App;
 If you need to navigate programmatically (like after a form submits), import `navigate`:
 
 ```jsx harmony
-import { navigate } from '@reach/router'
+import React, {Component} from 'react';
+import {navigate} from '@reach/router';
+import Axios from 'axios';
 
-const Invoices = () => (
-  <div>
-    <NewInvoiceForm
-      onSubmit={async event => {
-        const newInvoice = await createInvoice(event.target);
-        navigate(`/invoices/${newInvoice.id}`);
-      }}
-    />
-  </div>
-)
+class User extends Component {
+    state = {
+        user: {name: '', surname: '', department: ''}
+    };
+
+    componentDidMount() {
+        //fetch user from db
+        const self = this;
+        Axios.get(`/users/this.props.userId`)
+            .then(response => {
+                self.setState({response: result.data})
+            }
+        );
+    }
+
+    goHome = () => {
+        navigate('/');    
+    };   
+
+    render() {
+        return (
+            <div>
+                <h1>User info</h1>
+                <p>Hello, your user id {this.props.userId}</p>
+                <ul>
+                    <li>Name: {this.state.user.name}</li>
+                    <li>Surname: {this.state.user.surname}</li>
+                </ul>
+                <button onClick={this.goHome}>Save</button>
+            </div>
+        );
+    }
+}
+
+export default User;
 ```
 
 ## Exercise time: navigation
