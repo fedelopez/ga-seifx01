@@ -16,8 +16,7 @@
 
 >Recursion is a curious concept because it can refer to sentences, such as this one, that refer to curious concepts.
 
-Recursion in computer science is a method where the solution to a problem depends on solutions to smaller instances of 
-the same problem (as opposed to iteration).
+- Neil deGrasse Tyson
 
 At the opposite of iteration, recursion solves such recursive problems by using functions that call themselves 
 from within their own code.

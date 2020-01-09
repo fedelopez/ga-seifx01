@@ -1,12 +1,31 @@
 def countdown(n = 10)
-  sleep 1
   if n < 1
     puts "blast off!"
   else
     puts n
+    sleep 1
     countdown n - 1
   end
 end
+
+def sum_digits(str)
+  sum = 0
+  index = 0
+  while index < str.size
+    sum += str[index].to_i
+    index += 1
+  end
+  sum
+end
+
+def sum_digits_r(str, index = 0)
+  if index == str.size
+    0
+  else
+    str[index].to_i + sum_digits_r(str, index + 1)
+  end
+end
+
 
 # Here's an implementation of gcd using Euclid’s algorithm.
 def gcd(a, b)
@@ -14,14 +33,6 @@ def gcd(a, b)
     a
   else
     gcd(b, a % b)
-  end
-end
-
-def sum_digits(str, index = 0)
-  if index == str.size
-    0
-  else
-    str[index].to_i + sum_digits(str, index + 1)
   end
 end
 
@@ -112,6 +123,3 @@ def binary_search(array, element)
   end
   index
 end
-
-puts binary_search([9, 12, 34, 67, 343], 12)
-puts binary_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 1023)
