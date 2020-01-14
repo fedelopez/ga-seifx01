@@ -107,19 +107,3 @@ def draw_pascal(rows)
     puts ""
   end
 end
-
-def binary_search(array, element)
-  index = array.size / 2
-  found = false
-  until found
-    current = array[index]
-    if element == current
-      found = true
-    elsif element < current
-      index -= index / 2
-    else
-      index += (array.size - index) / 2
-    end
-  end
-  index
-end

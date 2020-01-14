@@ -1,0 +1,30 @@
+--- # Animal game
+question: "Is it a mammal?"
+yes:
+  question: "Is it a carnivore?"
+  yes:
+    question: "Does it live in the African savanna?"
+    yes:
+      answer: "lion"
+    no:
+      answer: "fox"
+  no:
+    question: "Is it a marsupial?"
+    yes:
+      answer: "kangaroo"
+    no:
+      answer: "cow"
+no:
+  question: "Is it an insect?"
+  yes:
+    answer: "beetle"
+  no:
+    question: "Is it a reptile?"
+    yes:
+      question: "Does it have legs?"
+      yes:
+        answer: "turtle"
+      no:
+        answer: "snake"
+    no:
+      answer: "shark"
