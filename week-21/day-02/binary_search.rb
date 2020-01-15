@@ -10,14 +10,6 @@ def simple_search(array, element)
   found ? index : -1
 end
 
-puts simple_search([9, 12, 34, 67, 343], 9)
-puts simple_search([9, 12, 34, 67, 343], 12)
-puts simple_search([9, 12, 34, 67, 343], 67)
-puts simple_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 1023)
-puts simple_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 11111)
-puts simple_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 11112)
-puts simple_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 2)
-
 def binary_search(array, element)
   found = false
   midpoint = -1
@@ -37,10 +29,18 @@ def binary_search(array, element)
   found ? midpoint : -1
 end
 
-puts binary_search([9, 12, 34, 67, 343], 9)
-puts binary_search([9, 12, 34, 67, 343], 12)
-puts binary_search([9, 12, 34, 67, 343], 67)
-puts binary_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 1023)
-puts binary_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 11111)
-puts binary_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 11112)
-puts binary_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 2)
+def print_result(func)
+  puts func.call([9], 9)
+  puts func.call([9, 12, 34, 67, 343], 9)
+  puts func.call([9, 12, 34, 67, 343], 343)
+  puts func.call([9, 12, 34, 67, 343], 12)
+  puts func.call([9, 12, 34, 67, 343], 67)
+  puts func.call([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 1023)
+  puts func.call([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 11112)
+  puts func.call([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 2)
+end
+
+print_result(method(:simple_search))
+puts '---'
+print_result(method(:binary_search))
+

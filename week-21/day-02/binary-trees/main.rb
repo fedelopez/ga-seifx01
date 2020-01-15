@@ -27,7 +27,7 @@ def play_game(tree)
   else
     puts tree.data
     answer = gets.chomp
-    if answer == 'y'
+    if answer == 'yes'
       play_game(tree.right_tree)
     else
       play_game(tree.left_tree)

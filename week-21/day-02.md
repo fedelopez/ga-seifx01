@@ -8,6 +8,8 @@
 * Recursion recap exercises
 * Binary trees code-along: The Animal Guessing Game
 
+[Slides](https://docs.google.com/presentation/d/1DgwonufDSKstl3VU9HsdKJeq6oxjgYVd3QsFd1RhktQ/edit?usp=sharing)
+
 ## Warm-up
 
 * [Phone Number Check](https://github.com/Yiannimoustakas/sei31-homework/tree/master/warmups/week08/day02_phone_number_check)
@@ -57,7 +59,7 @@ In an array of 1000 elements, you can always guess the number with a maximum of 
 
 Now imagine an array with 250K elements. The number of steps required would be 18 attempts!
 
-## Complexity
+### Complexity
 
 Quick recap on logarithms: just like multiplication is the opposite of division, logarithms are the opposite of exponents.
 
@@ -172,7 +174,7 @@ We are going to use a recursive-data structure to implement this game: trees!
 
 ### Modeling the binary tree in a file
 
-[YAML](https://yaml.org/) is a superset of JSON and widely supported by Ruby and other languages.
+[YAML](https://yaml.org) is a superset of JSON and widely supported by Ruby and other languages.
 
 Create a file named `tree.yaml` with the following contents:
 
@@ -271,7 +273,7 @@ def play_game(tree)
   else
     puts tree.data
     answer = gets.chomp
-    if answer == 'y'
+    if answer == 'yes'
       play_game(tree.right_tree)
     else
       play_game(tree.left_tree)

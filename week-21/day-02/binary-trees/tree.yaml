@@ -3,15 +3,15 @@ question: "Is it a mammal?"
 yes:
   question: "Is it a carnivore?"
   yes:
-    question: "Does it live in the African savanna?"
+    question: "Is it a marsupial?"
     yes:
-      answer: "lion"
+      answer: "tasmanian devil"
     no:
       answer: "fox"
   no:
-    question: "Is it a marsupial?"
+    question: "Is it marine?"
     yes:
-      answer: "kangaroo"
+      answer: "whale"
     no:
       answer: "cow"
 no:
