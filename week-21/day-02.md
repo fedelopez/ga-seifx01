@@ -5,6 +5,7 @@
 ## Agenda
 
 * Binary search
+* Recursion recap exercises
 * Binary trees code-along: The Animal Guessing Game
 
 ## Warm-up
@@ -32,27 +33,27 @@ the position in the array, otherwise returns null.
 
 Example: given the following ordered array. You are looking for the number 32.
 
-[9, 14, 20, 31, 32, 57, 100, 101]
+`[9, 14, 20, 31, 32, 57, 100, 101]`
 
-Is it 9? too low.
-Is it 14? too low.
-Is it 20? too low.
-Is it 32? too low.
+- Is it 9? too low.
+- Is it 14? too low.
+- Is it 20? too low.
+- Is it 31? too low.
 
 Now, this approach is called *Simple Search* and takes a while on large arrays. 
 
 In Binary Search the search would be like this:
 
-Is it 31? too low.
-Is it 57? too low.
-I know, it's 32!!
+- Is it 31? too low.
+- Is it 57? too high.
+- I know, it's 32!!
 
-Imagine the array has now 100 elements. If the number is the last one it will take 100 iterations to find it.
+Imagine the array has now 1K elements. If the number is the last one it will take 1K iterations to find it.
 
-In Binary search you would start by asking if it's 50. If the number is too high you just have eliminated 50 elements!
+In Binary search you would start by asking if it's 500. If the number is too high you just have eliminated 500 elements!
 With Binary Search you guess the middle number and you eliminate half of the numbers every time.
 
-In an array of 100 elements, you can always guess the number with a maximum of 7 attempts.
+In an array of 1000 elements, you can always guess the number with a maximum of 10 attempts.
 
 Now imagine an array with 250K elements. The number of steps required would be 18 attempts!
 
@@ -98,8 +99,8 @@ For more info on logarithms, visit [Khan Academy website](https://www.khanacadem
 
 ## Exercise: Binary Search
 
-Write a function (no need to be recursive) that given an sorted array and a desired number, it returns the position of 
-the number in the array.
+Write a function (can be pen & paper) that given an sorted array and a desired number, it returns the position of 
+the number in the array. This function does not need to be recursive.
 
 Examples:
 
@@ -118,7 +119,46 @@ puts binary_search([9, 12, 34, 67, 343, 980, 1023, 11110, 11111], 1023)
 # 6
 ```
 
-# Binary trees code along: The animal guessing game
+## Exercise: recursive sum
+
+Write a function named `recursion_sum` that takes 2 arguments, `first` and `last`:
+The function will yield a result of the sum of all the numbers between the first and and the last.
+
+```ruby
+def recursive_sum(first, last) 
+ # TODO
+end
+```
+
+For instance:
+
+```ruby
+puts recursive_sum(0, 10)
+# will yield 55, since 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 = 55
+```
+
+```ruby
+puts recursive_sum(3, 8)
+# will yield 33, since 3 + 4 + 5 + 6 + 7 + 8 = 33
+```
+
+## Exercise: build array recursively
+
+Write a recursive function `build_even_array` that accepts one parameter: `max_num`
+
+The function should return an array with all the even between 0 and `max_num`:
+
+```ruby
+puts build_even_array 9
+# [0, 2, 4, 6, 8]
+```
+
+```ruby
+puts build_even_array 14
+# [0, 2, 4, 6, 8, 10, 12, 14]
+```
+
+## Binary trees code along: The animal guessing game
 
 We are going to create a program named "The Animal Guessing Game". 
 This game involves guessing what animal the other person is pretending to be. 
@@ -126,11 +166,11 @@ In this particular case, the computer will try to guess the animal the user will
 
 We are going to use a recursive-data structure to implement this game: trees!
 
-## Modeling the binary tree
+### Modeling the binary tree
 
 ![Animals tree](https://github.com/fedelopez/ga-seifx01/blob/master/week-21/day-02/binary-trees/tree.png)
 
-## Modeling the binary tree in a file
+### Modeling the binary tree in a file
 
 [YAML](https://yaml.org/) is a superset of JSON and widely supported by Ruby and other languages.
 
@@ -175,7 +215,7 @@ Advantages over JSON for this particular use case:
 - Less verbose to model a recursive data structure
 - Use of indentation allows to see the tree
 
-## Reading the tree from the file
+### Reading the tree from the file
 
 Make sure you require the `yaml` gem.
 
@@ -240,7 +280,7 @@ def play_game(tree)
 end
 ```
 
-## Putting it all together in the game loop
+### Putting it all together in the game loop
 
 ```ruby
 cnf = YAML.load_file('tree.yaml')
@@ -258,3 +298,48 @@ until option == 'q'
   end
 end
 ```
+
+## Exercise: load Yaml file
+
+Create a file named `invoice.yaml` with the following contents:
+
+```yaml
+---
+receipt:     Oz-Ware Purchase Invoice
+date:        2012-08-06
+customer:
+    first_name:   Dorothy
+    family_name:  Gale
+
+items:
+    - part_no:   A4786
+      descrip:   Water Bucket (Filled)
+      price:     1.47
+      quantity:  4
+    
+    - part_no:   E1628
+      descrip:   High Heeled "Ruby" Slippers
+      size:      8
+      price:     133.7
+      quantity:  1
+```
+
+Create a class in Ruby named `Invoice`, with the following properties:
+
+- receipt_name
+- date
+- customer_first_name
+- customer_family_name
+- items
+
+items is an array, each item is an instance from a class named `Item`, with following fields:
+
+- part_no
+- description
+- size
+- price
+- quantity
+
+Read the yaml file into an object of the class `Invoice`. Remember to add as many items
+as found in the invoice yaml file!
+
