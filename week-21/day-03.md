@@ -356,7 +356,7 @@ Let's refactor the actor page into a handlebar template:
 ```html
 <div>
     <h2>This is the page of {{actor.name}}</h2>
-    <h3>His Star Wars character is {{actor.character}}</h3>
+    <h3>The Star Wars this actor plays is {{actor.character}}</h3>
     <a href="/actors/edit/{{actor.id}}">Edit</a>
 </div>
 ```
