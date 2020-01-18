@@ -1,0 +1,14 @@
+<div>
+    <h2>Edit actor</h2>
+    <form action="/actors/{{actor._id}}" method="POST">
+        <label for="name">Actor Name
+            <input type="text" name="name" value="{{actor.name}}">
+        </label>
+        <label for="character">Star Wars Character
+            <input type="text" name="character" value="{{actor.character}}">
+        </label>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>

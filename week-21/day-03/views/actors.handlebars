@@ -1,0 +1,8 @@
+<div>
+    <h2>Star Wars actor page!</h2>
+    <ul>
+        {{#each actors}}
+           <li><a href="/actors/{{this._id}}">{{this.name}}</a></li>
+        {{/each}}
+    </ul>
+</div>

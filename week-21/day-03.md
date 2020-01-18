@@ -43,7 +43,7 @@ Let's create an endpoint at the root.
 For now it will just return the string "Hello, World!":
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 ```
@@ -61,7 +61,7 @@ when the server will be up:
 
 ```javascript
 const port = 3000;
-app.listen(port, function() {
+app.listen(port, () => {
   console.log(`Server running on port ${port}`)
 });
 ```
@@ -125,7 +125,7 @@ If no script is given, nodemon will test for a `package.json` file and if found,
 So now if we add a new route, nodemon will restart automatically:
 
 ```javascript
-app.get('/yo', function(req, res) {
+app.get('/yo', (req, res) => {
   res.send('Yo, World!');
 });
 ```
@@ -142,7 +142,7 @@ const actors = [
     {"id": 4, "name": "Daisy Ridley"}, 
     {"id": 5, "name": "John Boyega"}
 ];
-app.get('/actors', function(req, res) {
+app.get('/actors', (req, res) => {
   const names = actors.map(actor => `<a href='/actors/${actor.id}'>${actor.name}</a>`);
   res.send(names.join("</br>"));
 });
@@ -159,7 +159,7 @@ This is because that route does not exist yet.
 Let's create a `get` route that returns an actor based on the id, passed as a dynamic parameter:
 
 ```javascript
-app.get('/actors/:id', function(req, res) {
+app.get('/actors/:id', (req, res) => {
   const id = Number(req.params.id);
   const actor = actors.find(actor => actor.id === id);
   res.send(`This is the page of ${actor.name}`);
@@ -200,7 +200,7 @@ const actors = [
     {"id": 4, "name": "Daisy Ridley"}, 
     {"id": 5, "name": "John Boyega"}
 ];
-app.get('/actors', function(req, res) {
+app.get('/actors', (req, res) => {
   res.render('actors', { actors });
 });
 ```
@@ -300,7 +300,7 @@ The actors template (`views/actors.handlebars`) looks like this on Handlebars:
 Let's also replace the index path at `/` to render the `home` template below:
 
 ```javascript
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.render('home');
 });
 ```
@@ -344,7 +344,9 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/xwww-form-urlencoded
 ``` 
 
-Let's refactor the actor page into a handlebar template:
+Let's refactor the `get` actor controller to send a handlebar template.
+
+Now create the view for this endpoint:
 
 ```text
 .
@@ -370,7 +372,7 @@ actors their `name` and also their character in the Star Wars movies.
 Let's create the endpoint to edit an actor:
 
 ```javascript
-app.get('/actors/edit/:id', function(req, res) {
+app.get('/actors/edit/:id', (req, res) => {
     const id = Number(req.params.id);
     const actor = actors.find(actor => actor.id === id);
     res.render('actor_edit', { actor });
@@ -404,7 +406,7 @@ This endpoint will:
 - redirect the user to the actor page
 
 ```javascript
-app.post('/actors/:id', function(req, res) {
+app.post('/actors/:id', (req, res) => {
     const id = Number(req.params.id);
     const actor = actors.find(actor => actor.id === id);
     actor.name = req.body.name;
@@ -467,17 +469,17 @@ const actors = [
     {"id": 5, "name": "John Boyega"}
 ];
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
     res.render('actors', { actors });
 });
 
-router.get('/edit/:id', function(req, res) {
+router.get('/edit/:id', (req, res) => {
     const id = Number(req.params.id);
     const actor = actors.find(actor => actor.id === id);
     res.render('actor_edit', { actor });
 });
 
-router.post('/:id', function(req, res) {
+router.post('/:id', (req, res) => {
     const id = Number(req.params.id);
     const actor = actors.find(actor => actor.id === id);
     actor.name = req.body.name;
@@ -485,7 +487,7 @@ router.post('/:id', function(req, res) {
     res.redirect(`/actors/${id}`)
 });
 
-router.get('/:id', function(req, res) {
+router.get('/:id', (req, res) => {
     const id = Number(req.params.id);
     const actor = actors.find(actor => actor.id === id);
     res.render('actor', { actor });
@@ -512,12 +514,12 @@ brew services start mongodb-community
 Add the MongoDB driver for node:
 
 ```bash
-yarn install mongodb
+yarn add mongodb
 ```
 
 Let's seed the database with the list of actors we have been using.
 
-Create a file named actors.json and paste the following:
+Create a file named `actors.json` and paste the following:
 
 ```text
 {"name": "Mark Hamill"} 
@@ -569,36 +571,37 @@ First we will create a file named `db.js` with methods to connect, read and writ
 
 ```javascript
 const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
+
 const url = 'mongodb://localhost:27017';
 const dbName = 'test';
 const client = new MongoClient(url);
-const ObjectID = require('mongodb').ObjectID;
 
 let db, actors;
 
-client.connect(function (err) {
-    console.log("Connected successfully to server");
-    db = client.db(dbName);
-    actors = db.collection('actors');
+client.connect((error) => {
+    if (error) {
+        console.error('Could not connect to the MongoDB server. ')
+    } else {
+        console.log('Connected successfully to the MongoDB server.');
+        db = client.db(dbName);
+        actors = db.collection('actors');
+    }
 });
 
 const findActors = function (callback) {
     actors.find({}).toArray(function (err, actors) {
-        console.log("Found the following actors");
-        console.log(actors);
         callback(actors);
     });
 };
 
 const findActorById = function (id, callback) {
     actors.findOne({_id: ObjectID.createFromHexString(id)}, function (err, actor) {
-        console.log("Found the following record");
-        console.log(actor);
         callback(actor);
     });
 };
 
-const saveActor = function (id, name, character, callback) {
+const saveActor = function(id, name, character) {
     actors.update({_id: ObjectID.createFromHexString(id)}, {name, character});
 };
 
@@ -663,4 +666,4 @@ Some of the benefits of this module are:
 - Creates a basic folder structure that will help you organise code efficiently
 - Has example route which helps how Express works
 
-`npx express-generator`
+Usage: `npx express-generator` on an empty folder.
