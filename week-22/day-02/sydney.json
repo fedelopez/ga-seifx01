@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Croydon",
+    "x": 0,
+    "y": 0,
+    "neighbors": ["Petersham"]
+  },
+  {
+    "name": "Petersham",
+    "x": 1,
+    "y": 1,
+    "neighbors": ["Croydon", "Newtown", "Marrickville"]
+  },
+  {
+    "name": "Marrickville",
+    "x": 1,
+    "y": 2,
+    "neighbors": ["Petersham", "Alexandria", "Tempe", "Syd Airport"]
+  },
+  {
+    "name": "Newtown",
+    "x": 2,
+    "y": 1,
+    "neighbors": ["Petersham", "CBD", "Surry Hills", "Alexandria"]
+  },
+  {
+    "name": "CBD",
+    "x": 3,
+    "y": 0,
+    "neighbors": ["Newtown", "Surry Hills", "Bondi Junction"]
+  },
+  {
+    "name": "Surry Hills",
+    "x": 3,
+    "y": 1,
+    "neighbors": ["CBD", "Newtown", "Bondi Junction", "Kensington", "Alexandria"]
+  },
+  {
+    "name": "Alexandria",
+    "x": 3,
+    "y": 2,
+    "neighbors": ["Surry Hills", "Marrickville", "Newtown", "Kensington", "Kingsford", "Mascot"]
+  },
+  {
+    "name": "Kensington",
+    "x": 4,
+    "y": 2,
+    "neighbors": ["Surry Hills", "Alexandria", "Bondi Junction", "Kingsford"]
+  },
+  {
+    "name": "Kingsford",
+    "x": 4,
+    "y": 3,
+    "neighbors": ["Alexandria", "Kensington", "Maroubra"]
+  },
+  {
+    "name": "Bondi Junction",
+    "x": 5,
+    "y": 1,
+    "neighbors": ["CBD", "Surry Hills", "Kensington", "Tamarama"]
+  },
+  {
+    "name": "Tamarama",
+    "x": 6,
+    "y": 2,
+    "neighbors": ["Bondi Junction", "South Cooggee"]
+  },
+  {
+    "name": "South Cooggee",
+    "x": 6,
+    "y": 4,
+    "neighbors": ["Tamarama", "Maroubra"]
+  },
+  {
+    "name": "Maroubra",
+    "x": 5,
+    "y": 5,
+    "neighbors": ["South Cooggee", "Kingsford", "Mascot"]
+  },
+  {
+    "name": "Mascot",
+    "x": 3,
+    "y": 5,
+    "neighbors": ["Maroubra", "Alexandria", "Syd Airport"]
+  },
+  {
+    "name": "Tempe",
+    "x": 1,
+    "y": 5,
+    "neighbors": ["Syd Airport", "Marrickville"]
+  },
+  {
+    "name": "Syd Airport",
+    "x": 2,
+    "y": 6,
+    "neighbors": ["Mascot", "Marrickville"]
+  }
+]
