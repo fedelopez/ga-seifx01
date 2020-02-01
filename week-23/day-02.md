@@ -92,7 +92,7 @@ source ~/.bashrc
 Create a file named `.envrc` with the following contents:
 
 ```text
-export PORT=3001
+export PORT=3000
 ```
 
 now type `direnv allow` when prompted, this will inject the `PORT` variable to the environment and Express will be able to use it.
@@ -194,13 +194,13 @@ app.get('/api/movies', async (req, res) => {
 Calling the endpoint with an offset of 0 will start from the beginning, returning the first page:
 
 ```bash
-curl http://localhost:3001/movies?offset=0
+curl http://localhost:3000/movies?offset=0
 ```
 
 And calling it with an offset of 25 will return results for the second page:
 
 ```bash
-curl http://localhost:3001/movies?offset=25
+curl http://localhost:3000/movies?offset=25
 ```
 
 ### Exercise: Add new endpoint to return one movie based on its id
@@ -218,7 +218,7 @@ app.get('/api/movies/:id', async (req, res) => {
 When calling the endpoint on `curl`, the result should be like this:
 
 ```bash
-curl http://localhost:3001/movies/1
+curl http://localhost:3000/movies/1
 ```
 
 ```json
@@ -263,7 +263,26 @@ Scaffold a new React app on a folder named `web`:
 npx create-react-app web
 ```
 
-Remove any `.git` folder under the `web` directory.
+On the newly created`web` directory, remove the following:
+
+- `.git` folder
+- `.gitignore` file
+
+Make sure your `.gitignore` under the project root file looks like this one:
+
+```text
+node_modules
+build
+public
+!web/public
+.idea
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+*.env
+*.dev
+.DS_Store
+```
 
 Add `Axios` as project dependency:
 
@@ -281,7 +300,7 @@ Open the `package.json` from the React app and add a proxy to the Express server
   "version": "0.1.0",
   "private": true,
   ...
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3000"
 }
 ```
 
@@ -554,10 +573,13 @@ Update the `package.json` to look like this:
     "heroku-postbuild": "yarn build-web && yarn deploy-web"
   },
   "engines": {
-    "node": "13.6.x"
+    "node": "10.16.x"
   }
 }
 ```
+
+**Note** Make sure you supply the correct node engine version used locally.
+This example uses v10.16 but you may be using other versions such as v13.
 
 Create a file named `Procfile` with the following contents:
 
@@ -601,4 +623,3 @@ heroku open
 - [Getting started with Node JS](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
 - [Heroku Node JS support](https://devcenter.heroku.com/articles/nodejs-support)
 - [Heroku PostgreSQL](https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-node-js)
-
